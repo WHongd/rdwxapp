@@ -1,0 +1,15 @@
+{
+  "usingComponents": {
+    "van-skeleton": "@vant/weapp/skeleton/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-calendar": "@vant/weapp/calendar/index",
+    "mp-icon": "weui-miniprogram/icon/icon"
+  }
+}

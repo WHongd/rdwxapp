@@ -1,0 +1,76 @@
+/* pages/book/book.wxss */
+@import '/miniprogram_npm/@vant/weapp/common/index.wxss';
+
+.LogoBox{
+  text-align: center;
+  }
+.LogoBox .van-skeleton__row{
+  height: 40px!important;
+  display: inline-block;
+  margin-bottom: 20rpx;
+}
+.LogoBox text{
+  display: block;
+  font-size: 14px;
+  margin-top:6px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.BookBox{
+  padding:12px 20px;
+  
+}
+.book_centent_left .van-cell{
+  text-align: left;
+  padding:8px 0;
+}
+.PickerBox{
+  width: 100%;
+  position: relative;
+  padding-top:8px;
+
+}
+.form-input{
+ font-size: 13px;
+ color: #aaa9a9;
+ display: inline-block;
+ padding-left:3px;
+ padding-bottom: 3px;
+}
+.Rught_icon{
+  right: 0;
+  position: absolute;
+}
+.book_centent_right .van-cell{
+  padding:0;
+}
+.book_centent_right .van-cell{
+  padding:9px 0;
+}
+.book_right-t .van-cell__title{
+  font-size: 13px;
+  color: #aaa9a9;
+}
+.ReservedInformation{
+  color: #1989fa;
+  font-size: 13px;
+  padding:20px 0;
+}
+.ReservedInformation text{
+  font-size: 10px;
+  color: #aaa9a9;
+  margin-left: 5px;
+}
+.Reserved_user{
+  display: block;
+  padding:10px 0;
+}
+.Reserved_user .van-cell{
+padding:0px!important;
+}
+.Reserved_user .van-field__label{
+  color: #333;
+  letter-spacing: 2px;
+  font-size: 14px;
+  margin-left: 5px;
+}

@@ -1,0 +1,122 @@
+<!--index.wxml-->
+<view class="InTop">
+  <view class="Name">
+    <van-icon name="font-o" size="25px" />
+    <text>热度影像</text>
+  </view>
+  <view class="menu">
+    <van-icon name="wap-nav" size="20px"  color="white" is-link bind:click="showPopup"/>
+    <van-popup  show="{{ show }}" position="left" custom-style="height: 100%;" bind:close="onClose"  class="Menu_popup" >
+      <view class="Menu_popup_list">
+         <view style="height:55px;"></view>
+       </view>
+       <view class="Menu_popup_list" wx:for="{{MenuList}}" wx:for-item="MenuList" wx:for-index="index" wx:key="id">
+        <text class="Circular "></text>
+          <van-cell class="van-cell__title_select" border="{{false}}" title="{{MenuList.title}}" link-type="navigateTo" url="{{MenuList.url}}"/>
+  
+       </view>  
+    </van-popup>
+  </view>
+</view>
+<!-- banner -->
+<view class="banner">
+  <swiper class="TopSwiper" indicator-dots="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActivecolor}}">
+    <block wx:for-items="{{BannerUrl}}" wx:key="id">
+      <swiper-item>
+        <image src="{{item.imgurl}}"  bindtap="Enlarge" data-img="{{item.imgurl}}"  data-src="{{item.img}}" class="slide-image" mode="aspectFill" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<!--banner  end-->
+<view class="Introduce">
+  <van-icon class="Center" name="font-o" size="40px"  color="grey"/>
+  <text class="Introduce_text">热度影像</text>
+  <view class="Introduce_address">
+    <van-icon name="location" size="14px"  color="#aaa9a9"/>
+    <text>贵州省黔东南州凯里市XXXXXXX</text>
+  </view>
+  <button na></button>
+  <view class="Introduce_btn" >
+    <van-button  type="info" class="Appointment" bindtap="Openbook">预约咨询</van-button>
+    <van-button icon="" plain type="info" class="Follow">+关注</van-button>
+  </view>
+</view>
+<!-- 分隔条 -->
+<view class="Septum"></view>
+<!-- 作品展示 -->
+<view class="Works">
+   <h3>作品展示</h3>
+   <text>Work Promotion</text>
+</view>
+<van-row >
+  <van-col  wx:for="{{WorkPromotion}}"  wx:for-index="index" wx:key="id">
+    <view class="WorkPromotionContent" >
+      <van-image class="WorkPromotionContent_img" width="100%" height="120px" use-loading-slot  fit="cover"   lazy-load src="{{item.src}}">
+        <van-loading slot="loading" type="spinner" size="20" vertical />
+      </van-image>
+    </view>
+    <view class="WorkPromotionContent_title">{{item.title}}</view>
+    <text class="WorkPromotionKw">{{item.Keyword}}</text>
+  </van-col>
+</van-row>
+<!-- 作品展示 end -->
+<!-- more -->
+<view class="more">
+  <van-button plain  type="info" color="#646060">MORE</van-button>
+</view>
+<!-- abuout -->
+<view class="About">
+  <h3 class="About_chs">关于我们</h3>
+  <text class="About_eng">About me</text>
+</view>
+<!-- Slogan -->
+<view class="SloganBox">
+  <view class="Slogan_logo">
+    <van-icon  name="font-o" size="75px"  color="grey"/>
+  </view>
+  <view class="SloganBox_info">
+    <text id="SloganBox_title">热度影像</text>
+    <text id="SloganBox_slogan">时光会走远 影像能长存</text>
+  </view>
+</view>
+<!-- gallery -->
+<view class="GalleryBox">
+  <view class="GalleryTitle">gallery</view>
+  <text class="GalleryTitle_eng">record  the wonderful moments</text>
+  <view class="GalleryContent">
+    <van-icon name="tv-o" size="30px" />
+  </view>
+</view>
+<!-- 分隔条 -->
+<view class="Septum"></view>
+<view class="Evaluate">
+  <h3 class="Evaluate_title">用户评价</h3>
+  <text class="Evaluate_eng">The user evaluate</text>
+  <van-empty description="暂未开放" />
+</view>
+<!-- 联系方式 -->
+<view class="ContactInformation">
+  <view class="Contact">
+    <text>电话：13122222222</text>
+    <text>地址：贵州省黔东南州凯里市XXXXXXX</text>
+    <text>官网：www.lxjyingxiang.com</text>
+    <view class="SocialAccounts">
+      <view class="SocialAccounts_icon">
+        <van-image width="20" height="20" src="http://cdn.jiemufang.com/phone.png" />
+      </view>
+      <view class="SocialAccounts_icon">
+        <van-image width="20" height="20" src="http://cdn.jiemufang.com/wb.png" />
+      </view>
+      <view class="SocialAccounts_icon">
+        <van-image width="20" height="20" src="http://cdn.jiemufang.com/wx.png" />
+      </view>
+    </view>
+  </view>
+</view>
+
+
+ 
+
+
+

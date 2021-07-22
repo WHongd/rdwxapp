@@ -1,0 +1,286 @@
+/**index.wxss**/
+@import '/miniprogram_npm/@vant/weapp/common/index.wxss';
+.InTop{
+  background-color: #333;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  padding:15px 0 15px 0;
+}
+.Name{
+  float: left;
+  padding-left: 15px;
+}
+.Name text{
+   margin-left: 5px;
+   letter-spacing:2px;
+   font-size:14px;
+   vertical-align: 3px; 
+}
+.menu{
+  float:right;
+  padding-right: 15px;
+}
+ .slide-image {
+  width: 100%;
+  height: 100%;
+}
+.TopSwiper{
+  width: 100%;
+  height: 270px;
+}
+.banner{
+  margin-top: 3.5rem;
+}
+.Introduce{
+  width: 100%;
+  padding: 1rem 0;
+  background-color: white;
+}
+.Center{
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.Introduce_text{
+  display: block;
+  text-align: center;
+  letter-spacing:2px;
+}
+.Introduce_address{
+  font-size:12px;
+  color: #aaa9a9;
+  text-align: center;
+  padding-top:5px;
+}
+.Introduce_address text{
+  margin-left: 5px;
+  letter-spacing:1px;
+}
+.Septum{
+  height: 10px;
+  background-color:rgb(238, 238, 238);
+}
+.Introduce_btn{
+  padding-top:25px;
+  text-align: center;
+  }
+  .Appointment{
+    display: inline-block;
+  }
+  .Appointment button{
+    font-size:12px;
+    padding:0 20px;
+    height: 30px;
+    margin-right: 15px;
+  }
+  .Follow button{
+    font-size:12px;
+    padding:0 20px;
+    height: 30px;  
+  }
+  .Works{
+
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    background: white;
+    text-align: center;
+  }
+  .Works h3{
+    letter-spacing: 2px;
+  }
+  .Works text{
+    display: block;
+    font-size: 10px;
+    color: #aaa9a9;
+    padding-top:5px;
+  }
+
+  /* ----- */
+
+  .van-popup{
+    background-color: rgb(51, 51, 51)!important;
+  }
+
+  .Menu_popup_list{
+    border-bottom:1rpx solid #ddd;
+    padding-left: 25px;
+    padding-right:50px;
+    color: white;
+    text-align: left;
+    position: relative;
+  }
+  .van-cell{
+    background-color: rgb(51, 51, 51)!important;
+  }
+ .van-cell__title{
+   color: white;
+   letter-spacing: 2px;
+   font-size: 12px;
+ }
+.Circular{
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  left: 15px;
+  top: 19px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  z-index: 99;
+}
+.Circular_select{
+  background-color: #ddd;
+}
+.van-col{
+  width: 50%!important;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.WorkPromotionContent{
+padding:0 3px;
+}
+.WorkPromotionContent_img{
+  width: 100%;
+  height: 120px;
+}
+.WorkPromotionContent_title{
+  padding: 5px 15px;
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow: hidden;
+  font-size: 10px;
+  text-align: left;
+}
+
+.WorkPromotionKw{
+  color:#aaa9a9;
+  font-size: 10px;  
+  text-align: left;
+  display: block;
+  padding-left: 15px;
+}
+
+.more{
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.more button{
+  padding: 0!important;
+  width: 50%;
+  height: 35px;
+  left:2px;
+}
+.About{
+  width: 100%;
+  background-color: #f8f8f8;
+  text-align: center;
+  padding-top:55px;
+  padding-bottom: 30px;
+}
+.About_chs{
+letter-spacing: 1px;
+color: #333;
+margin-bottom: 3px;
+}
+.About_eng{
+  font-size: 12px;
+  color: #aaa9a9;
+    display: block;
+}
+.SloganBox{
+  display: flex;
+  background: url("http://cdn.jiemufang.com/Slogan.jpg");
+  padding:60px 30px;
+}
+.Slogan_logo{
+  width: 33%;
+}
+.SloganBox_info{
+  width:67%;
+}
+#SloganBox_title{
+  padding-top:6px;
+  color: #fff;
+  display: block;
+}
+#SloganBox_slogan{
+  padding-top: 10px;
+  font-size: 12px;
+  color: #aaa9a9;
+}
+.GalleryBox{
+  padding-top:40px;
+  padding-bottom:40px;
+  text-align: center;
+}
+.GalleryTitle{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  text-transform:uppercase;
+  color: #464545;
+  font-size: 17px;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+.GalleryTitle_eng{
+  font-size: 8px;
+  text-transform:uppercase;
+  color: #706e6e;
+}
+.GalleryContent{
+  width: 100%;
+  height: 150px;
+  text-align: center;
+  line-height: 150px;
+}
+.Evaluate{
+  padding-top:40px;
+  text-align: center;
+}
+.Evaluate_title{
+  letter-spacing: 1px;
+  color: #333;
+  margin-bottom: 3px;
+}
+.Evaluate_eng{
+  font-size: 12px;
+  color: #aaa9a9;
+    display: block;
+}
+.ContactInformation{
+  width: 100%;
+  background: url("http://cdn.jiemufang.com/Contact_bg.jpg");
+  background-position:50% 60% ;
+  box-sizing: border-box;
+}
+.Contact{
+  width: 100%;
+  box-sizing: border-box;
+  padding:40px 20px 30px 20px;
+}
+.Contact text{
+  color: #aaa9a9;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.SocialAccounts{
+  display: flex;
+  width: 100%;
+  margin-top: 25px;
+}
+.SocialAccounts_icon{
+  width: 40px;
+  border:1px solid #aaa9a9;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-right: 15px;
+}
+.SocialAccounts_icon van-image{
+  padding-top: 8px;
+}
