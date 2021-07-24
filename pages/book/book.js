@@ -117,5 +117,11 @@ confirmPublish: function () {
   onShareAppMessage: function () {
 
   }
+,
+
+
+
+
+
 })
 
