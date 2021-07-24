@@ -11,7 +11,6 @@ Page({
     indicatorColor:'grey',
     indicatorActivecolor:'white',
     nickname: '',
-    na:"123",
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     
   BannerUrl:[
@@ -124,33 +123,74 @@ onReady() {
   });
 },
 Openbook(){
-    var that = this
+    var that = this;
+    var code="";
+    wx.login({
+      success(res){
+        if(res.code){
+          code=res.code;
+        }
+      }
+    });
     wx.getUserProfile({
       desc: '用户登录', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
-        console.log("获取用户信息成功", res)
+        // console.log("获取用户信息成功", res);
+        console.log(res.userInfo.nickName);
+        //将需要的变量存储起来
+        wx.setStorageSync("nickname",res.userInfo.nickName);
+        var nickname=wx.getStorageSync('nickname');
+        var data=JSON.parse( res.rawData);
+        var city="";
+        city=data.province+data.city;
+        if(!city) city="未知";
+        var postData={
+          'js_code':code,
+          'appid':app.globalData.appid,
+          'nickname':res.userInfo.nickName,
+          'sex':data.gender,
+          'city':city
+        };
+        // console.log(postData);
+        wx.request({
+          url: app.globalData.weburl+"/api/wxapp/wxlogin",
+          method:"GET",
+          data:postData,
+          url: app.globalData.weburl+"/api/wxapp/wxlogin",
+          header:{'content-type': 'application/json'},
+          success(res){
+            //登录成功后的回调
+            // console.log(res.data);
+            wx.setStorageSync("token",res.data.token);
+
+            wx.showToast({
+              title: '加载中！',
+              icon:'loading',
+              duration:2000
+            })
+          setTimeout(function(){
+                wx.navigateTo({
+                  url: '/pages/book/book'
+                },1000)
+              })
+          }
+        })
         that.setData({//添加及更新UI
           nickname:res.userInfo.nickName,
         })
-   
       },
       fail: res => {
-        console.log("获取用户信息失败", res)
-      }
-     
-    }),
-    
-  wx.showToast({
-    title: '加载中',
-    icon:'loading',
-    duration:500,
-  })
-  setTimeout(function(){
-    wx.navigateTo({
-      url: '/pages/book/book?nicknameData=' + that.data.nickname
+        // console.log("获取用户信息失败", res)
+        wx.showToast({
+          title: '登录失败',
+          icon: 'error',
+          duration: 1000
+      })
+        return false;
+      
+    }
     })
-    },500)
+
 
 }
-
 })

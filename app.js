@@ -9,5 +9,9 @@ App({
     }
   })
   },
-  
+  globalData:{ 
+      userInfo: null,
+      appid:"wx745dfe396aa55a5c",
+      weburl:"https://wxx.51zzsc.cn:85"
+  }
 })
