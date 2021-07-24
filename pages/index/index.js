@@ -10,6 +10,9 @@ Page({
     duration: 600,
     indicatorColor:'grey',
     indicatorActivecolor:'white',
+    nickname: '',
+    na:"123",
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     
   BannerUrl:[
     {"id":1,"imgurl":"http://cdn.jiemufang.com/Banner1.jpg",
@@ -84,8 +87,11 @@ Page({
       title: '加载中',
       icon:'loading',
       duration:600
-  })
+  });
+ 
   },
+ 
+
   // 左侧滑出菜单
   showPopup() {
     this.setData({ show: true });
@@ -118,6 +124,22 @@ onReady() {
   });
 },
 Openbook(){
+    var that = this
+    wx.getUserProfile({
+      desc: '用户登录', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: (res) => {
+        console.log("获取用户信息成功", res)
+        that.setData({//添加及更新UI
+          nickname:res.userInfo.nickName,
+        })
+   
+      },
+      fail: res => {
+        console.log("获取用户信息失败", res)
+      }
+     
+    }),
+    
   wx.showToast({
     title: '加载中',
     icon:'loading',
@@ -125,7 +147,7 @@ Openbook(){
   })
   setTimeout(function(){
     wx.navigateTo({
-      url: '/pages/book/book',
+      url: '/pages/book/book?nicknameData=' + that.data.nickname
     })
     },500)
 

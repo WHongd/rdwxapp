@@ -15,7 +15,8 @@ Page({
         maxHeight: 60,
         minHeight: 40
       },
-
+      nickname: '',
+      canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   // 预约服务
   choiceChange:function(e){
@@ -60,27 +61,31 @@ confirmPublish: function () {
   console.log("选择的日期为："+ this.data.taskStartTime);
 },
   
+
+
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    that.setData({
+      nickname:options.nicknameData,
+    })
 
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
-    
+  
   },
-
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+   
   },
 
   /**
@@ -116,10 +121,12 @@ confirmPublish: function () {
    */
   onShareAppMessage: function () {
 
-  }
-,
+  },
 
-
+//appid:wx0c4ab61db98ac5bf  
+btnLogin:function(event){
+ 
+    },
 
 
 

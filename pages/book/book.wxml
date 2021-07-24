@@ -35,7 +35,7 @@
       <!-- 预留信息 -->
       <view class="ReservedInformation">预留信息<text>( 请填写 )</text></view>
       <van-cell-group class="Reserved_box">
-        <van-field label="联系人:" value="{{ value }}"   left-icon="user-o" placeholder="请输入用户名"  placeholder-style="font-size:12px;"/>
+        <van-field label="联系人:" value="{{nickname}}"   left-icon="user-o" placeholder="请输入用户名"  placeholder-style="font-size:12px;"/>
       </van-cell-group>
       <van-cell-group class="Reserved_box">
         <van-field label="联系电话:" value="{{ value }}" left-icon="phone-o" placeholder="请输入电话"   placeholder-style="font-size:12px;"/>
@@ -48,7 +48,8 @@
       </view>
       </form>
     </view>
-  
- 
+
+
 
 </view>
+
