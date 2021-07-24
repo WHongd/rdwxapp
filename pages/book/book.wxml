@@ -1,44 +1,54 @@
 <!--pages/test/test.wxml-->
 <view class="content">
   <view class="LogoBox " > 
-    <van-skeleton  row="1" loading="{{ loading }}">
           <van-icon name="font-o" size="40px"  color="grey"/>
           <text class="Logo_text">热度影像</text>  
-    </van-skeleton>
   </view>
     <view class="BookBox">
-      <van-row gutter="10"  class="BookCentent">
-        <van-col span="9" class="book_centent_left">
+    <form catchsubmit="confirmPublish">
+      <van-row gutter="12"  class="BookCentent">
+        <van-col span="8" class="book_centent_left">
           <van-cell title-width="180rpx"  title="预约服务：" icon="flower-o"  border="{{false}}" clickable="{{true}}"/>
         </van-col>
-        <van-col span="15" class="book_centent_right" >
+        <van-col span="16" class="book_centent_right" >
           <view class="PickerBox">
-            <picker class='form-input' mode="selector" range='{{columns}}' value='{{choiceIndex}}' bindchange='choiceChange'>
-              {{choiceIndex != "请选择你的服务项目"?columns[choiceIndex]:"请选择你的服务项目"}}
+            <picker mode="selector"  class='form-input' range='{{columns}}' value='{{choiceIndex}}' bindchange='choiceChange'  >
+              <!-- {{choiceIndex != "请选择你的服务项目"?columns[choiceIndex]:"请选择你的服务项目"}} -->
+              <view class="picker">{{choiceIndex=="请选择你的服务项目" ? "请选择你的服务项目" : columns[choiceIndex]}}</view>
             </picker>
-            <mp-icon type="field" icon="arrow" color="#939496" size="{{10}}" class="Rught_icon"></mp-icon>
+            <view class="arrow"></view>
           </view>
         </van-col>
       </van-row>
-      <van-row gutter="10"  class="BookCentent">
-        <van-col span="9" class="book_centent_left">
+      <van-row gutter="12"  class="BookCentent">
+        <van-col span="8" class="book_centent_left">
           <van-cell title-width="180rpx"  title="服务时间：" icon="notes-o"  border="{{false}}" clickable="{{true}}"/>
         </van-col>
-        <van-col span="15" class="book_centent_right" >
-          <van-cell class="book_right-t" title="请选择服务时间" value="{{ date }}" bind:click="onDisplay" is-link   border="{{false}}"/>
-          <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" color="#1989fa" />
+        <van-col span="16" class="book_centent_right" >
+          <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
+            <view class="book-form-group " bindtap="showCalendar">
+              <input placeholder-class="binput_phcolor" disabled="disabled"  placeholder="请选择服务时间" value="{{time}}" data-name="time"></input>
+              <view class="arrow"></view>
+            </view>
         </van-col>
       </van-row>
       <!-- 预留信息 -->
       <view class="ReservedInformation">预留信息<text>( 请填写 )</text></view>
-      <van-cell-group class="Reserved_user">
-        <van-field label="联系人:" value="{{ value }}"   left-icon="user-o" placeholder="请输入用户名" bind:change="onChange"/>
+      <van-cell-group class="Reserved_box">
+        <van-field label="联系人:" value="{{ value }}"   left-icon="user-o" placeholder="请输入用户名"  placeholder-style="font-size:12px;"/>
       </van-cell-group>
-      <van-cell-group class="Reserved_user">
-        <van-field label="联系电话:" value="{{ value }}"   left-icon="phone-o" placeholder="请输入电话" bind:change="onChange"/>
+      <van-cell-group class="Reserved_box">
+        <van-field label="联系电话:" value="{{ value }}" left-icon="phone-o" placeholder="请输入电话"   placeholder-style="font-size:12px;"/>
       </van-cell-group>
+      <van-cell-group class="Reserved_box">
+        <van-field type="textarea" autosize="{{autoSize}}"  label="预约备注:" value="{{ value }}"   left-icon="records" placeholder="请输入地点、时间、要求等信息" show-confirm-bar="{{true}}"    placeholder-style="font-size:11px;"/>
+      </van-cell-group>
+      <view class="Submit">
+        <van-button  form-type="submit" type="info" class="Submit_button" bindtap="">立即预约</van-button>
+      </view>
+      </form>
     </view>
-
-
+  
+ 
 
 </view>

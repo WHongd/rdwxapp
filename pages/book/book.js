@@ -5,35 +5,61 @@ Page({
    * 页面的初始数据
    */
   data: {
-      loading:true,
-      show:false,
-      columns: ['选片(￥1.00)','拍片(￥9999.00)'],
+      columns: ["选片(￥1.00)","拍片(￥9999.00)"],
       choiceIndex:'请选择你的服务项目',
-      userDate:"请选择你的服务项目",
-  },
+      maxDate: new Date().setFullYear(new Date().getFullYear() + 2),
+      taskStartTime: '',
+      time: '',
+      show:false,
+      autoSize: {
+        maxHeight: 60,
+        minHeight: 40
+      },
 
+  },
+  // 预约服务
   choiceChange:function(e){
-    let thas = this;
-    thas.setData({
-      choiceIndex:e.detail.value
+    this.setData({
+      choiceIndex:e.detail.value,
     });
-    },
-    onDisplay() {
-      this.setData({ show: true });
-    },
-    onClose() {
-      this.setData({ show: false });
-    },
-    formatDate(date) {
-      date = new Date(date);
-      return `${date.getMonth() + 1}/${date.getDate()}`;
-    },
-    onConfirm(event) {
-      this.setData({
-        show: false,
-        date: this.formatDate(event.detail),
-      });
-    },
+    console.log('picker发送选择改变，携带值为'+this.data.columns[e.detail.value])
+  },
+ //服务时间
+ showCalendar() {
+  this.setData({ show: true })
+},
+onClose() {
+  this.setData({ show: false })
+},
+formatDate(date) {
+  let taskStartTime
+  if (date.getMonth() < 9) {
+    taskStartTime = date.getFullYear() + "-0" + (date.getMonth() + 1) + "-"
+  } else {
+    taskStartTime = date.getFullYear() + "-" + (date.getMonth() + 1) + "-"
+  }
+  if (date.getDate() < 10) {
+    taskStartTime += "0" + date.getDate()
+  } else {
+    taskStartTime += date.getDate()
+  }
+  this.setData({
+    taskStartTime: taskStartTime,
+  })
+  return taskStartTime;
+},
+onConfirm(e) {
+  this.setData({
+    time: this.formatDate(e.detail),
+    show: false
+  })
+},
+confirmPublish: function () {
+  const data = {}
+  data.taskStartTime = this.data.taskStartTime;
+  console.log("选择的日期为："+ this.data.taskStartTime);
+},
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -45,12 +71,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    const that=this;
-    setTimeout(()=>{
-      this.setData({
-        loading: false,
-      });
-    },500)
+
     
   },
 

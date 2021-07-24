@@ -1,0 +1,12 @@
+<!--pages/test/test.wxml-->
+<text>pages/test/test.wxml</text>
+<van-cell title="选择单个日期" value="{{ date }}" bind:click="onDisplay" />
+<van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
+<form catchsubmit="confirmPublish">
+  <view class="cu-form-group " bindtap="showCalendar">
+    <input disabled="disabled" placeholder="请选择任务时限" value="{{time}}" data-name="time"></input>
+  </view>
+  <button class='btn1' form-type="submit">确认发布</button>
+</form>
+
+
