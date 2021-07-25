@@ -13,7 +13,6 @@
        <view class="Menu_popup_list" wx:for="{{MenuList}}" wx:for-item="MenuList" wx:for-index="index" wx:key="id">
         <text class="Circular "></text>
           <van-cell class="van-cell__title_select" border="{{false}}" title="{{MenuList.title}}" link-type="navigateTo" url="{{MenuList.url}}"/>
-  
        </view>  
     </van-popup>
   </view>
@@ -52,7 +51,7 @@
 <van-row >
   <van-col  wx:for="{{WorkPromotion}}"  wx:for-index="index" wx:key="id">
     <view class="WorkPromotionContent" >
-      <van-image class="WorkPromotionContent_img" width="100%" height="120px" use-loading-slot  fit="cover"   lazy-load src="{{item.src}}">
+      <van-image class="WorkPromotionContent_img" width="100%" height="120px" use-loading-slot  fit="cover" src="{{item.src}}">
         <van-loading slot="loading" type="spinner" size="20" vertical />
       </van-image>
     </view>
@@ -116,7 +115,7 @@
 </view>
 <!-- 悬浮 -->
 <view class="SuspensionMenu">
-  <view class="Suspension_subscribe" bindtap="SPopup">
+  <view class="Suspension_subscribe" >
     <van-icon name="chat-o" color="white" size="1.5em"/>
     <text>预约</text>
   </view>

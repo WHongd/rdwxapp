@@ -69,7 +69,7 @@ Page({
         ],
     MenuList:[
      {"id":1, "title":"主页","url":"/pages/dashboard/index"},
-     {"id":2,  "title":"作品","url":"/pages/dashboard/index"},
+     {"id":2,  "title":"作品","url":"/pages/opus/opus"},
      {"id":3,  "title":"套系","url":"/pages/dashboard/index"},
      {"id":4, "title":"评价","url":"/pages/dashboard/index"},
      {"id":5,  "title":"关于","url":"/pages/dashboard/index"},

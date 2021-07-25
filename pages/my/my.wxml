@@ -1,0 +1,16 @@
+<!--pages/my/my.wxml-->
+<view class="content">
+  <view class="MyTop">
+    <van-row >
+        <van-col span="12">
+          <view class="UserImg"><open-data type="userAvatarUrl"></open-data> </view>
+        </van-col>
+        <van-col span="12">
+          <view class="UserName"><open-data type="userNickName" lang="zh_CN"></open-data></view>
+        </van-col>
+    </van-row>
+  </view>
+
+</view>
+
+

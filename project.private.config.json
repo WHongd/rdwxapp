@@ -19,8 +19,14 @@
           "scene": null
         },
         {
-          "name": "pages/test/test",
-          "pathName": "pages/test/test",
+          "name": "pages/opus/opus",
+          "pathName": "pages/opus/opus",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/my/my",
+          "pathName": "pages/my/my",
           "query": "",
           "scene": null
         }

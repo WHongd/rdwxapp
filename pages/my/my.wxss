@@ -1,0 +1,19 @@
+/* pages/my/my.wxss */
+.MyTop{
+  /* -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .2);  
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .2); */
+  border:1rpx solid;
+  box-sizing: border-box;
+  padding:10px 0px;
+}
+.UserImg{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow:hidden;
+}
+.UserName{
+
+
+  border:1rpx solid;
+}
