@@ -3,14 +3,16 @@
 .InTop{
   background-color: #333;
   color: #fff;
-  position: fixed;
-  top: 0;
-  z-index: 999;
   width: 100%;
-  padding:15px 0 15px 0;
+  height: 50px;
+  position: sticky;
+  position:-webkit-sticky;
+  top: 0;
+  z-index: 1;
 }
 .Name{
   float: left;
+  padding-top:12px;
   padding-left: 15px;
 }
 .Name text{
@@ -21,6 +23,7 @@
 }
 .menu{
   float:right;
+  padding-top: 12px;
   padding-right: 15px;
 }
  .slide-image {
@@ -30,9 +33,6 @@
 .TopSwiper{
   width: 100%;
   height: 270px;
-}
-.banner{
-  margin-top: 3.5rem;
 }
 .Introduce{
   width: 100%;
@@ -144,7 +144,7 @@ padding:0 3px;
 }
 .WorkPromotionContent_img{
   width: 100%;
-  height: 120px;
+  height: 140px;
 }
 .WorkPromotionContent_title{
   padding: 5px 15px;
@@ -283,4 +283,46 @@ margin-bottom: 3px;
 }
 .SocialAccounts_icon van-image{
   padding-top: 8px;
+}
+.SuspensionMenu{
+  width: 70px;
+  /* height: 130px; */
+  position: fixed;
+  position:-webkit-fixed;
+  bottom: 50px;
+  right: 10px;
+  /* border:1rpx solid; */
+  z-index: 99;
+}
+.Suspension_my , .Suspension_subscribe{
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: #1989fa;
+  display: block;
+  text-align: center;
+  margin:0 auto;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .2);  
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+  margin-top: 10px;
+}
+.Suspension_subscribe text{
+  display: block;
+  font-size: 12px;
+  margin-top: -2px;
+  color:white;
+}
+.Suspension_subscribe .van-icon{
+  margin-top:8px;
+}
+.Suspension_my{
+  background-color: white;
+}
+.Suspension_my .van-icon {
+  margin-top:8px;
+}
+.Suspension_my  text{
+    display: block;
+    font-size: 12px;
+    margin-top: -2px;
 }

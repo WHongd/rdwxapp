@@ -1,9 +1,12 @@
 // index.js
 // 获取应用实例
 // import { Swipe, SwipeItem } from 'vant';
+var common = require('../common/common');
 const app = getApp()
 Page({
   data: {
+    loading:true,
+    container: null,
     show:false,//左侧菜单滑动
     autoplay:true,
     interval: 3000,
@@ -12,6 +15,7 @@ Page({
     indicatorActivecolor:'white',
     nickname: '',
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    SuspensionShow:false,
     
   BannerUrl:[
     {"id":1,"imgurl":"http://cdn.jiemufang.com/Banner1.jpg",
@@ -99,6 +103,8 @@ Page({
   onClose() {
     this.setData({ show: false });
   },
+  
+  
 //  左侧滑出菜单 end
 
 // 轮播图预览
@@ -164,14 +170,14 @@ Openbook(){
             wx.setStorageSync("token",res.data.token);
 
             wx.showToast({
-              title: '加载中！',
+              title: '加载中',
               icon:'loading',
               duration:2000
             })
           setTimeout(function(){
                 wx.navigateTo({
                   url: '/pages/book/book'
-                },1000)
+                },0)
               })
           }
         })

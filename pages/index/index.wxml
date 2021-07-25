@@ -8,7 +8,7 @@
     <van-icon name="wap-nav" size="20px"  color="white" is-link bind:click="showPopup"/>
     <van-popup  show="{{ show }}" position="left" custom-style="height: 100%;" bind:close="onClose"  class="Menu_popup" >
       <view class="Menu_popup_list">
-         <view style="height:55px;"></view>
+         <view style="height:50px;"></view>
        </view>
        <view class="Menu_popup_list" wx:for="{{MenuList}}" wx:for-item="MenuList" wx:for-index="index" wx:key="id">
         <text class="Circular "></text>
@@ -114,7 +114,17 @@
     </view>
   </view>
 </view>
-
+<!-- 悬浮 -->
+<view class="SuspensionMenu">
+  <view class="Suspension_subscribe" bindtap="SPopup">
+    <van-icon name="chat-o" color="white" size="1.5em"/>
+    <text>预约</text>
+  </view>
+  <view class="Suspension_my">
+    <van-icon name="user-circle-o" size="1.5em"/>
+    <text>我的</text>
+  </view>
+</view>
 
 
  
