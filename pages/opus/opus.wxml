@@ -27,7 +27,10 @@
   </van-image>
   <view class="OpustTitleinfo">{{item.title}}</view>
   <view class="OpustKey">{{item.type}}</view>
-  <view class="OpustMore">[ MORE..]</view>
+  <view class="OpustMore">
+    <view class="van-multi-ellipsis--l2"> {{item.content}}</view> 
+    <text>[ MORE..]</text>
+  </view>
   <view class="OpustShare">
     <view class="OshareIcon">
       <van-icon name="share-o" />
@@ -39,9 +42,25 @@
     </view>
   </view>
 </view>
-
-<view >
-
+<!-- 联系方式 -->
+<view class="ContactInformation">
+  <view class="Contact">
+    <text>电话：13122222222</text>
+    <text>地址：贵州省黔东南州凯里市XXXXXXX</text>
+    <text>官网：www.lxjyingxiang.com</text>
+    <view class="SocialAccounts">
+      <view class="SocialAccounts_icon">
+        <van-image width="20" height="20" src="http://cdn.jiemufang.com/phone.png" />
+      </view>
+      <view class="SocialAccounts_icon">
+        <van-image width="20" height="20" src="http://cdn.jiemufang.com/wb.png" />
+      </view>
+      <view class="SocialAccounts_icon">
+        <van-image width="20" height="20" src="http://cdn.jiemufang.com/wx.png" />
+      </view>
+    </view>
+  </view>
 </view>
+
 
 

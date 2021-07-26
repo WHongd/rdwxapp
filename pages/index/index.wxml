@@ -2,7 +2,7 @@
 <view class="InTop">
   <view class="Name">
     <van-icon name="font-o" size="25px" />
-    <text>热度影像</text>
+    <text>{{CommonInfo.appname}}</text>
   </view>
   <view class="menu">
     <van-icon name="wap-nav" size="20px"  color="white" is-link bind:click="showPopup"/>
@@ -22,7 +22,7 @@
   <swiper class="TopSwiper" indicator-dots="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActivecolor}}">
     <block wx:for-items="{{BannerUrl}}" wx:key="id">
       <swiper-item>
-        <image src="{{item.imgurl}}"  bindtap="Enlarge" data-img="{{item.imgurl}}"  data-src="{{item.img}}" class="slide-image" mode="aspectFill" />
+        <image src="{{item.imgurl}}"  bindtap="Enlarge" data-img="{{item.imgurl}}"  data-src="{{img}}" class="slide-image" mode="aspectFill" />
       </swiper-item>
     </block>
   </swiper>
@@ -30,10 +30,10 @@
 <!--banner  end-->
 <view class="Introduce">
   <van-icon class="Center" name="font-o" size="40px"  color="grey"/>
-  <text class="Introduce_text">热度影像</text>
+  <text class="Introduce_text">{{CommonInfo.appname}}</text>
   <view class="Introduce_address">
     <van-icon name="location" size="14px"  color="#aaa9a9"/>
-    <text>贵州省黔东南州凯里市XXXXXXX</text>
+    <text>{{CommonInfo.address}}</text>
   </view>
   <button na></button>
   <view class="Introduce_btn" >
@@ -49,14 +49,14 @@
    <text>Work Promotion</text>
 </view>
 <van-row >
-  <van-col  wx:for="{{WorkPromotion}}"  wx:for-index="index" wx:key="id">
+  <van-col  wx:for="{{WorkPromotion}}"  wx:for-index="index" wx:key="id" wx:if="{{index<8}}">
     <view class="WorkPromotionContent" >
-      <van-image class="WorkPromotionContent_img" width="100%" height="120px" use-loading-slot  fit="cover" src="{{item.src}}">
+      <van-image class="WorkPromotionContent_img" width="100%" height="120px" use-loading-slot  fit="cover" src="{{item.mainphoto}}">
         <van-loading slot="loading" type="spinner" size="20" vertical />
       </van-image>
     </view>
     <view class="WorkPromotionContent_title">{{item.title}}</view>
-    <text class="WorkPromotionKw">{{item.Keyword}}</text>
+    <text class="WorkPromotionKw">{{item.type}}</text>
   </van-col>
 </van-row>
 <!-- 作品展示 end -->
@@ -75,8 +75,8 @@
     <van-icon  name="font-o" size="75px"  color="grey"/>
   </view>
   <view class="SloganBox_info">
-    <text id="SloganBox_title">热度影像</text>
-    <text id="SloganBox_slogan">时光会走远 影像能长存</text>
+    <text id="SloganBox_title">{{CommonInfo.appname}}</text>
+    <text id="SloganBox_slogan">{{CommonInfo.content}}</text>
   </view>
 </view>
 <!-- gallery -->
@@ -97,9 +97,9 @@
 <!-- 联系方式 -->
 <view class="ContactInformation">
   <view class="Contact">
-    <text>电话：13122222222</text>
-    <text>地址：贵州省黔东南州凯里市XXXXXXX</text>
-    <text>官网：www.lxjyingxiang.com</text>
+    <text>电话：{{CommonInfo.phone}}</text>
+    <text>地址：{{CommonInfo.address}}</text>
+    <text>官网：{{CommonInfo.website}}</text>
     <view class="SocialAccounts">
       <view class="SocialAccounts_icon">
         <van-image width="20" height="20" src="http://cdn.jiemufang.com/phone.png" />

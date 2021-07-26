@@ -34,10 +34,19 @@
   color:#aaa9a9;
 }
 .OpustMore{
+  padding:0 15px;
+}
+.OpustMore text{
   color: #1989fa;
   font-size: 12px;
-  padding-left: 30px;
+  margin-left: 3px;
   font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.van-multi-ellipsis--l2{
+  font-size: 12px;
+  color: #504f4f;
+  padding-right: 5px;
+  text-indent: 2em;
 }
 .OpustShare{
   text-align: right;

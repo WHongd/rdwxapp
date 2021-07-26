@@ -11,12 +11,11 @@ Page({
     show:false,//左侧菜单滑动
     list:[],
     MenuList:[
-      {"id":1, "title":"主页","url":"/pages/dashboard/index"},
+      {"id":1, "title":"主页","url":"/pages/index/index"},
       {"id":2,  "title":"作品","url":"/pages/opus/opus"},
-      {"id":3,  "title":"套系","url":"/pages/dashboard/index"},
-      {"id":4, "title":"评价","url":"/pages/dashboard/index"},
-      {"id":5,  "title":"关于","url":"/pages/dashboard/index"},
-      {"id":6,  "title":"我的","url":"/pages/dashboard/index"},
+      {"id":3, "title":"评价","url":"/pages/dashboard/index"},
+      {"id":4,  "title":"关于","url":"/pages/dashboard/index"},
+      {"id":5,  "title":"我的","url":"/pages/my/my"},
      ],
   },
  // 左侧滑出菜单
@@ -35,14 +34,13 @@ onClose() {
    */
   onLoad: function (options) {
     fetch("getworkslist","GET",).then(res=>{
-            for(var i=0;i<res.data.data.length;i++){
-              res['data']['data'][i]['mainphoto']=app.globalData.cdnurl+res['data']['data'][i]['mainphoto'];
-            }
-            this.setData({list:res.data.data})//调用轮播图数据
-            if(res.data.code==1){
-              console.log(res.data.data);
-            }
-          });
+      if(res.data.code==1){
+        for(var i=0;i<res.data.data.length;i++){
+          res['data']['data'][i]['mainphoto']=app.globalData.cdnurl+res['data']['data'][i]['mainphoto'];
+        }
+        this.setData({list:res.data.data})//调用轮播图数据
+      }
+    });
   },
 
   /**

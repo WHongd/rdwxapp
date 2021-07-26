@@ -10,7 +10,13 @@
         </van-col>
     </van-row>
   </view>
-
+  <view class="Mymenu">
+    <van-cell title="我的预约" is-link />
+    <van-cell title="我的相册" is-link />
+    <van-cell title="我的积分" is-link />
+    <van-cell title="联系客服" is-link />
+    <van-cell title="返回首页" is-link  url="/pages/index/index"/>
+  </view>
 </view>
 
 

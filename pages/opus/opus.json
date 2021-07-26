@@ -4,5 +4,6 @@
     "van-popup": "@vant/weapp/popup/index",
     "van-cell": "@vant/weapp/cell/index",
     "van-image": "@vant/weapp/image/index"
+
   }
 }

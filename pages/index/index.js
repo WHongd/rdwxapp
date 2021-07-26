@@ -2,6 +2,7 @@
 // 获取应用实例
 // import { Swipe, SwipeItem } from 'vant';
 var common = require('../common/common');
+const fetch=require('../../utils/fetch');
 const app = getApp()
 Page({
   data: {
@@ -16,73 +17,17 @@ Page({
     nickname: '',
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     SuspensionShow:false,
-    
-  BannerUrl:[
-    {"id":1,"imgurl":"http://cdn.jiemufang.com/Banner1.jpg",
-    img:["http://cdn.jiemufang.com/Banner1.jpg",
-        "http://cdn.jiemufang.com/Banner2.jpg",
-        "http://cdn.jiemufang.com/Banner3.jpg",
-        "http://cdn.jiemufang.com/Banner4.jpg",
-        "http://cdn.jiemufang.com/Banner5.jpg",
-        "http://cdn.jiemufang.com/Banner6.jpg"
-      ]},
-    {"id":2,"imgurl":"http://cdn.jiemufang.com/Banner2.jpg",
-        img:["http://cdn.jiemufang.com/Banner1.jpg",
-        "http://cdn.jiemufang.com/Banner2.jpg",
-        "http://cdn.jiemufang.com/Banner3.jpg",
-        "http://cdn.jiemufang.com/Banner4.jpg",
-        "http://cdn.jiemufang.com/Banner5.jpg",
-        "http://cdn.jiemufang.com/Banner6.jpg"
-      ]},
-    {"id":3,"imgurl":"http://cdn.jiemufang.com/Banner3.jpg" ,
-    img:["http://cdn.jiemufang.com/Banner1.jpg",
-        "http://cdn.jiemufang.com/Banner2.jpg",
-        "http://cdn.jiemufang.com/Banner3.jpg",
-        "http://cdn.jiemufang.com/Banner4.jpg",
-        "http://cdn.jiemufang.com/Banner5.jpg",
-        "http://cdn.jiemufang.com/Banner6.jpg"
-      ]},
-    {"id":4,"imgurl":"http://cdn.jiemufang.com/Banner4.jpg",
-    img:["http://cdn.jiemufang.com/Banner1.jpg",
-        "http://cdn.jiemufang.com/Banner2.jpg",
-        "http://cdn.jiemufang.com/Banner3.jpg",
-        "http://cdn.jiemufang.com/Banner4.jpg",
-        "http://cdn.jiemufang.com/Banner5.jpg",
-        "http://cdn.jiemufang.com/Banner6.jpg"
-      ]},
-    {"id":5, "imgurl":"http://cdn.jiemufang.com/Banner5.jpg",
-    img:["http://cdn.jiemufang.com/Banner1.jpg",
-        "http://cdn.jiemufang.com/Banner2.jpg",
-        "http://cdn.jiemufang.com/Banner3.jpg",
-        "http://cdn.jiemufang.com/Banner4.jpg",
-        "http://cdn.jiemufang.com/Banner5.jpg",
-        "http://cdn.jiemufang.com/Banner6.jpg"
-      ]},
-    {"id":6,"imgurl":"http://cdn.jiemufang.com/Banner6.jpg",
-    img:["http://cdn.jiemufang.com/Banner1.jpg",
-        "http://cdn.jiemufang.com/Banner2.jpg",
-        "http://cdn.jiemufang.com/Banner3.jpg",
-        "http://cdn.jiemufang.com/Banner4.jpg",
-        "http://cdn.jiemufang.com/Banner5.jpg",
-        "http://cdn.jiemufang.com/Banner6.jpg"
-      ]}
-        ],
+    BannerUrl:[],
+    img:[],
+    WorkPromotion:[],
     MenuList:[
-     {"id":1, "title":"主页","url":"/pages/dashboard/index"},
+     {"id":1, "title":"主页","url":"/pages/index/index"},
      {"id":2,  "title":"作品","url":"/pages/opus/opus"},
-     {"id":3,  "title":"套系","url":"/pages/dashboard/index"},
-     {"id":4, "title":"评价","url":"/pages/dashboard/index"},
-     {"id":5,  "title":"关于","url":"/pages/dashboard/index"},
-     {"id":6,  "title":"我的","url":"/pages/dashboard/index"},
+     {"id":3, "title":"评价","url":"/pages/dashboard/index"},
+     {"id":4,  "title":"关于","url":"/pages/dashboard/index"},
+     {"id":5,  "title":"我的","url":"/pages/my/my"},
     ],
-    WorkPromotion:[
-      {"id":1,"title":"2020-08-18欧俊麟&申巧萍","Keyword":"婚礼","src":"http://111.85.112.22:85/uploads/20210716/430fd83ad96e5b39efd691e93e995f97.jpg"},
-      {"id":2,"title":"2020-08-28周瑞&田芳玲","Keyword":"婚礼","src":"http://111.85.112.22:85/uploads/20210716/5b4e6a2ebd8cb7666bd40a8d94e43d1d.jpg"},
-      {"id":3,"title":"2020-07-16徐畅&黄昌明","Keyword":"婚礼","src":"http://111.85.112.22:85/uploads/20210716/7520b557360a4f4f2e1b694b0b02a18a.jpg"},
-      {"id":4,"title":"2021-05-25欧俊&申巧","Keyword":"婚礼","src":"http://111.85.112.22:85/uploads/20210716/9338e03e105b3a96bf94d6099be0e0cf.jpg"},
-      {"id":5,"title":"2021-03-11欧俊麟&申巧萍","Keyword":"婚礼","src":"http://111.85.112.22:85/uploads/20210716/a3ef1fd0afce1f07aa5cc9b0dfdd9e32.jpg"},  
-      {"id":6,"title":"2021-04-17欧俊麟&申巧萍","Keyword":"婚礼","src":"http://111.85.112.22:85/uploads/20210716/a3ef1fd0afce1f07aa5cc9b0dfdd9e32.jpg"},  
-    ]
+
   },
 
   onLoad() {
@@ -91,15 +36,39 @@ Page({
       icon:'loading',
       duration:600
   });
- 
+
+  fetch("orderplay","GET",).then(res=>{
+    if(res.data.code==1){
+      var arr=[];
+      for(var i=0;i<res.data.data.length;i++){
+        res['data']['data'][i]['imgurl']=app.globalData.cdnurl+res['data']['data'][i]['filepath'];
+        arr.push(res['data']['data'][i]['imgurl']);
+    }
+    res['data']['data']['Allimgurl']=arr;
+    this.setData({img:res['data']['data']['Allimgurl']});
+    this.setData({BannerUrl:res.data.data})//调用轮播图数据
+    }
+    });
+fetch("getworkslist","GET",).then(res=>{
+  if(res.data.code==1){
+    for(var i=0;i<res.data.data.length;i++){
+      res['data']['data'][i]['mainphoto']=app.globalData.cdnurl+res['data']['data'][i]['mainphoto'];
+    }
+     this.setData({WorkPromotion:res.data.data})//调用轮播图数据
+  }
+    });
+fetch("wxnotice","GET",{appid:app.globalData.appid}).then(res=>{
+  if(res.data.code==1){
+    res['data']['data']['appname']=app.globalData.appname
+     this.setData({CommonInfo:res.data.data})//调用轮播图数据
+  }
+    });
   },
  
-
   // 左侧滑出菜单
   showPopup() {
     this.setData({ show: true });
   },
-
   onClose() {
     this.setData({ show: false });
   },
@@ -119,7 +88,7 @@ Enlarge:function(event){
     //图片预览
     wx.previewImage({
       current: img, //当前显示的图片
-      urls:imgList// 需要预览的图片https链接列表
+      urls:imgList// 需要预览的图片https链接列表
     })
 },
 // 轮播图预览 end
@@ -127,6 +96,7 @@ onReady() {
   this.setData({
     loading: false,
   });
+ 
 },
 Openbook(){
     var that = this;

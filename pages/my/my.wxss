@@ -1,10 +1,9 @@
 /* pages/my/my.wxss */
 .MyTop{
-  /* -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .2);  
-  box-shadow: 0 3px 5px rgba(0, 0, 0, .2); */
-  border:1rpx solid;
-  box-sizing: border-box;
-  padding:10px 0px;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .2);  
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+  padding:10px 20px;
+  margin-bottom: 30px;
 }
 .UserImg{
   width: 70px;
@@ -13,7 +12,14 @@
   overflow:hidden;
 }
 .UserName{
+  padding:15px 0;
+}
+.UserName open-data{
+  font-size: 1.2rem;
+  color: red;
 
-
-  border:1rpx solid;
+}
+.Mymenu .van-cell{
+  padding-top:20px;
+  padding-bottom:20px;
 }

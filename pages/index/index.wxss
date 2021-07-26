@@ -256,6 +256,7 @@ margin-bottom: 3px;
   background: url("http://cdn.jiemufang.com/Contact_bg.jpg");
   background-position:50% 60% ;
   box-sizing: border-box;
+  margin-top:50px;
 }
 .Contact{
   width: 100%;

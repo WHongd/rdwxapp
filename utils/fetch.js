@@ -1,8 +1,8 @@
-const app=getApp();
+const conf=require('config.js');
 module.exports = (url,method,data,header)=>{
   return new Promise((resolve,reject)=>{
     wx.request({
-      url:app.globalData.weburl+'/api/wxapp/'+url,
+      url:conf.conf.weburl+'/api/wxapp/'+url,
       data:data,
       method:method,
       header:{
