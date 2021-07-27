@@ -1,7 +1,6 @@
 // index.js
 // 获取应用实例
 // import { Swipe, SwipeItem } from 'vant';
-var common = require('../common/common');
 const fetch=require('../../utils/fetch');
 const app = getApp()
 Page({
@@ -38,31 +37,34 @@ Page({
   });
 
   fetch("orderplay","GET",).then(res=>{
+      if(res.data.code==1){
+        var arr=[];
+        for(var i=0;i<res.data.data.length;i++){
+          res['data']['data'][i]['imgurl']=app.globalData.cdnurl+res['data']['data'][i]['filepath'];
+          arr.push(res['data']['data'][i]['imgurl']);
+      }
+      res['data']['data']['Allimgurl']=arr;
+      this.setData({img:res['data']['data']['Allimgurl']});
+      this.setData({BannerUrl:res.data.data})//调用轮播图数据
+      }
+      });
+  fetch("getworkslist","GET",).then(res=>{
     if(res.data.code==1){
-      var arr=[];
       for(var i=0;i<res.data.data.length;i++){
-        res['data']['data'][i]['imgurl']=app.globalData.cdnurl+res['data']['data'][i]['filepath'];
-        arr.push(res['data']['data'][i]['imgurl']);
+        res['data']['data'][i]['mainphoto']=app.globalData.cdnurl+res['data']['data'][i]['mainphoto'];
+      }
+       this.setData({WorkPromotion:res.data.data})//调用作品数据
+      // console.log(res.data.data)
     }
-    res['data']['data']['Allimgurl']=arr;
-    this.setData({img:res['data']['data']['Allimgurl']});
-    this.setData({BannerUrl:res.data.data})//调用轮播图数据
+      });
+  fetch("wxnotice","GET",{appid:app.globalData.appid}).then(res=>{
+    if(res.data.code==1){
+      res['data']['data']['appname']=app.globalData.appname
+      wx.setStorageSync('commoninfo', res.data.data);
+      this.setData({CommonInfo:res.data.data})//调用轮播图数据
     }
-    });
-fetch("getworkslist","GET",).then(res=>{
-  if(res.data.code==1){
-    for(var i=0;i<res.data.data.length;i++){
-      res['data']['data'][i]['mainphoto']=app.globalData.cdnurl+res['data']['data'][i]['mainphoto'];
-    }
-     this.setData({WorkPromotion:res.data.data})//调用轮播图数据
-  }
-    });
-fetch("wxnotice","GET",{appid:app.globalData.appid}).then(res=>{
-  if(res.data.code==1){
-    res['data']['data']['appname']=app.globalData.appname
-     this.setData({CommonInfo:res.data.data})//调用轮播图数据
-  }
-    });
+      });
+
   },
  
   // 左侧滑出菜单
@@ -72,8 +74,31 @@ fetch("wxnotice","GET",{appid:app.globalData.appid}).then(res=>{
   onClose() {
     this.setData({ show: false });
   },
-  
-  
+  //拨号
+  callphone(){
+    try{
+      var info=wx.getStorageSync("commoninfo");
+      if(info){
+        wx.makePhoneCall({
+          phoneNumber: info.phone,
+          fail:(err)=>{
+            // console.log("用户拒绝拨打电话");
+          }
+         })
+      }
+    }catch(e){
+      console.log("获取号码出错:"+e);
+    }
+  },
+  onOpusTap:function(event){
+    var postId = event.currentTarget.dataset.postid;
+    console.log(postId);
+    wx.navigateTo({
+      // 将新闻块的postid穿进去
+      url: '../opus-detail/opus-detail?id='+postId,
+    })
+  },
+
 //  左侧滑出菜单 end
 
 // 轮播图预览
@@ -112,7 +137,7 @@ Openbook(){
       desc: '用户登录', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
         // console.log("获取用户信息成功", res);
-        console.log(res.userInfo.nickName);
+        // console.log(res.userInfo.nickName);
         //将需要的变量存储起来
         wx.setStorageSync("nickname",res.userInfo.nickName);
         var nickname=wx.getStorageSync('nickname');
@@ -138,7 +163,6 @@ Openbook(){
             //登录成功后的回调
             // console.log(res.data);
             wx.setStorageSync("token",res.data.token);
-
             wx.showToast({
               title: '加载中',
               icon:'loading',

@@ -1,0 +1,7 @@
+<!--pages/opus-detail/opus-detail.wxml-->
+<text>pages/opus-detail/opus-detail.wxml</text>
+<view wx:for="{{Opusdata}}" wx:key="id" wx:for-index="index">
+  <image src="{{item.filepath}}" alt=""> </image>
+</view>
+
+

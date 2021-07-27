@@ -23,6 +23,7 @@ Page({
   this.setData({ show: true });
 },
 
+
 onClose() {
   this.setData({ show: false });
 },
@@ -33,14 +34,28 @@ onClose() {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    fetch("wxnotice","GET",{appid:app.globalData.appid}).then(res=>{
+      if(res.data.code==1){
+        res['data']['data']['appname']=app.globalData.appname
+        wx.setStorageSync('commoninfo', res.data.data);
+        this.setData({CommonInfo:res.data.data})//调用轮播图数据
+      }
+        });
+
     fetch("getworkslist","GET",).then(res=>{
       if(res.data.code==1){
         for(var i=0;i<res.data.data.length;i++){
           res['data']['data'][i]['mainphoto']=app.globalData.cdnurl+res['data']['data'][i]['mainphoto'];
         }
-        this.setData({list:res.data.data})//调用轮播图数据
+        this.setData({list:res.data.data})
       }
     });
+    wx.showToast({
+      title: '加载中',
+      icon:'loading',
+      duration:600
+    });
   },
 
   /**
@@ -48,7 +63,23 @@ onClose() {
    */
   onReady: function () {
   },
-
+  //拨号
+  callphone(){
+    try{
+      var info=wx.getStorageSync("commoninfo");
+      if(info){
+        wx.makePhoneCall({
+          phoneNumber: info.phone,
+          fail:(err)=>{
+            console.log("用户拒绝拨打电话");
+          }
+         })
+      }
+    }catch(e){
+      console.log("获取号码出错:"+e);
+    }
+  },
+  
   /**
    * 生命周期函数--监听页面显示
    */

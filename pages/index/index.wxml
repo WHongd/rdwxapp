@@ -50,6 +50,7 @@
 </view>
 <van-row >
   <van-col  wx:for="{{WorkPromotion}}"  wx:for-index="index" wx:key="id" wx:if="{{index<8}}">
+    <view class="opus_data" data-postId="{{item.id}}" bindtap="onOpusTap">
     <view class="WorkPromotionContent" >
       <van-image class="WorkPromotionContent_img" width="100%" height="120px" use-loading-slot  fit="cover" src="{{item.mainphoto}}">
         <van-loading slot="loading" type="spinner" size="20" vertical />
@@ -57,6 +58,7 @@
     </view>
     <view class="WorkPromotionContent_title">{{item.title}}</view>
     <text class="WorkPromotionKw">{{item.type}}</text>
+    </view>
   </van-col>
 </van-row>
 <!-- 作品展示 end -->
@@ -99,23 +101,23 @@
   <view class="Contact">
     <text>电话：{{CommonInfo.phone}}</text>
     <text>地址：{{CommonInfo.address}}</text>
-    <text>官网：{{CommonInfo.website}}</text>
+    <text>微信：{{CommonInfo.wechat}}</text>
     <view class="SocialAccounts">
       <view class="SocialAccounts_icon">
-        <van-image width="20" height="20" src="http://cdn.jiemufang.com/phone.png" />
+        <van-image width="20" height="20" bindtap="callphone" src="http://cdn.jiemufang.com/phone.png" />
       </view>
       <view class="SocialAccounts_icon">
         <van-image width="20" height="20" src="http://cdn.jiemufang.com/wb.png" />
       </view>
       <view class="SocialAccounts_icon">
-        <van-image width="20" height="20" src="http://cdn.jiemufang.com/wx.png" />
+        <van-image width="20" height="20"  src="http://cdn.jiemufang.com/wx.png" />
       </view>
     </view>
   </view>
 </view>
 <!-- 悬浮 -->
 <view class="SuspensionMenu">
-  <view class="Suspension_subscribe" >
+  <view class="Suspension_subscribe">
     <van-icon name="chat-o" color="white" size="1.5em"/>
     <text>预约</text>
   </view>

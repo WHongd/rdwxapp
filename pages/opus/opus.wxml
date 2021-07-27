@@ -42,8 +42,10 @@
     </view>
   </view>
 </view>
+<import src ="../common/common.wxml"/>
+<template is="tp" data="{{phone:CommonInfo.phone,address:CommonInfo.address,wechat:CommonInfo.wechat}}"/>
 <!-- 联系方式 -->
-<view class="ContactInformation">
+<!-- <view class="ContactInformation">
   <view class="Contact">
     <text>电话：13122222222</text>
     <text>地址：贵州省黔东南州凯里市XXXXXXX</text>
@@ -60,7 +62,7 @@
       </view>
     </view>
   </view>
-</view>
+</view> -->
 
 
 

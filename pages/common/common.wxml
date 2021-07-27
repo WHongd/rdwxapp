@@ -1,0 +1,21 @@
+<!-- 联系方式 -->
+<template name="tp">
+    <view class="ContactInformation">
+    <view class="Contact">
+      <text>电话：{{phone}}</text>
+      <text>地址：{{address}}</text>
+      <text>微信：{{wechat}}</text>
+      <view class="SocialAccounts">
+        <view class="SocialAccounts_icon">
+          <van-image width="20" height="20" bindtap="callphone" src="http://cdn.jiemufang.com/phone.png" />
+        </view>
+        <view class="SocialAccounts_icon">
+          <van-image width="20" height="20" src="http://cdn.jiemufang.com/wb.png" />
+        </view>
+        <view class="SocialAccounts_icon">
+          <van-image width="20" height="20"  src="http://cdn.jiemufang.com/wx.png" />
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
