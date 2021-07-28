@@ -1,7 +1,30 @@
-<!--pages/opus-detail/opus-detail.wxml-->
-<text>pages/opus-detail/opus-detail.wxml</text>
-<view wx:for="{{Opusdata}}" wx:key="id" wx:for-index="index">
-  <image src="{{item.filepath}}" alt=""> </image>
+<view class="DetailCentent">
+  <view class="TopImg">
+    <van-image use-loading-slot class="" width="100%" height="260"  fit="scover" src="https://file.51zzsc.cn/uploads/20210725/FvOIW1QWbXcoqc3CgQG8x6SOnnL1.jpg">
+        <van-loading slot="loading" type="spinner" size="20" vertical />
+      </van-image>
+  </view>
+  <view class="DetailTitle">-某某某的婚礼-</view>
+    <view class="authorBox">
+        <van-icon name="font-o" size="15px" />
+        <text>by {{CommonInfo.appname}}</text>
+    </view>
+    <view class="authorAllimg">
+      <view class='left'>
+  <block wx:for="{{leftList}}" wx:key="index">
+    <image class='pic' style='height:{{item.CoverHeight}}' src='{{item.Cover}}'></image>
+  </block>
 </view>
+<view class='right'>
+  <block wx:for="{{rightList}}" wx:key="index">
+    <image class='pic' style='height:{{item.CoverHeight}}' src='{{item.Cover}}'></image>
+  </block>
+</view>
+
+    </view>
+
+</view>
+
+
 
 

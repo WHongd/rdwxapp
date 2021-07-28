@@ -1,1 +1,41 @@
 /* pages/opus-detail/opus-detail.wxss */
+@import '/miniprogram_npm/@vant/weapp/common/index.wxss';
+.DetailTitle{
+  text-align: center;
+  padding:20px 0;
+}
+.authorBox{
+text-align: center;
+}
+.authorBox .van-icon {
+  display: inline-block;
+}
+.authorBox text{
+  margin-left: 5px;
+  font-size: 10px;
+  color: rgba(245, 97, 38, 0.856);
+  display: inline-block;
+  vertical-align:5rpx;
+}
+/* -------- */
+
+.authorAllimg{
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx;
+  overflow: hidden;
+}
+.left{
+  width: 345rpx;
+}
+
+.right{
+  width: 345rpx;
+  margin-left: 20rpx;
+}
+
+.pic{
+  border-radius: 10rpx;
+  width: 345rpx;
+}
+

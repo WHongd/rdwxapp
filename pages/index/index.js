@@ -61,7 +61,7 @@ Page({
     if(res.data.code==1){
       res['data']['data']['appname']=app.globalData.appname
       wx.setStorageSync('commoninfo', res.data.data);
-      this.setData({CommonInfo:res.data.data})//调用轮播图数据
+      this.setData({CommonInfo:res.data.data})//调用公共信息数据
     }
       });
 
@@ -92,9 +92,9 @@ Page({
   },
   onOpusTap:function(event){
     var postId = event.currentTarget.dataset.postid;
-    console.log(postId);
+    // console.log(postId);
     wx.navigateTo({
-      // 将新闻块的postid穿进去
+      // 将作品块的postid穿进去
       url: '../opus-detail/opus-detail?id='+postId,
     })
   },
