@@ -11,33 +11,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    leftList: [],
-    rightList: [],
-    leftHight: 0,
-    rightHight: 0,
-  noramalData: [
-    {
-    "Cover": "http://dashus.oss-cn-shenzhen.aliyuncs.com/DefaultImage/Game/20190306144842/1001.png",
-    "CoverHeight": 467,
-    "CoverWidth": 350
-    },
-    {
-      "Cover": "http://dashus.oss-cn-shenzhen.aliyuncs.com/DefaultImage/Game/20190313090409/完美9.png",
-      "CoverHeight": 871,
-      "CoverWidth": 672
-    },
-    {
-      "Cover": "https://img1.baidu.com/it/u=390347063,605554658&fm=26&fmt=auto&gp=0.jpg",
-      "CoverHeight": 705,
-      "CoverWidth": 396
-    },
-    {
-      "Cover": "https://img0.baidu.com/it/u=1001230451,2954266246&fm=26&fmt=auto&gp=0.jpg",
-      "CoverHeight": 906,
-      "CoverWidth": 600
-    },
-],
-
+    isShow:true,
+    videoSrc:'https://file.51zzsc.cn/uploads/20210725/lrtzwLhNSwxlfAPn9sWmsF4CJQpu.mp4',   // 视频
+    videoCoverImg:'http://img5.imgtn.bdimg.com/it/u=1672477765,2527992874&fm=26&gp=0.jpg',   // 视频封面图
+    videoPlayIcon:'https://img2.baidu.com/it/u=3239379307,1847963789&fm=26&fmt=auto&gp=0.png',  // 视频播放icon
   },
  
   
@@ -71,11 +48,11 @@ Page({
       var commdata={
         'liketimes':res.data.data.liketimes,
         'looktimes':res.data.data.looktimes,
-        'video':res.data.data.video,
+        'video':res['data']['data']['video'][0],
         'cdnurl':app.globalData.cdnurl
       }
       this.setData({Opusdata2:commdata})//调用作品数据
-      // console.log(res.data.data);
+      // console.log(commdata.video);
   }
     });
 
@@ -87,61 +64,41 @@ fetch("wxnotice","GET",{appid:app.globalData.appid}).then(res=>{
   }
     });
 
-// 瀑布流
-  var that = this;
-  var allData = that.data.noramalData;
-  //定义两个临时的变量来记录左右两栏的高度，避免频繁调用setData方法
-  var leftH = that.data.leftHight;
-  var rightH = that.data.rightHight;
-  var leftData = [];
-  var rightData = [];
-  for (let i = 0; i < allData.length; i++) {
-    var currentItemHeight = parseInt(Math.round(allData[i].CoverHeight * 345 / allData[i].CoverWidth));
-    allData[i].CoverHeight = currentItemHeight + "rpx";//因为xml文件中直接引用的该值作为高度，所以添加对应单位
-    if (leftH == rightH || leftH < rightH) {//判断左右两侧当前的累计高度，来确定item应该放置在左边还是右边
-      leftData.push(allData[i]);
-      leftH += currentItemHeight;
-    }else{
-      rightData.push(allData[i]);
-      rightH += currentItemHeight;
-    }
-  }
-  that.setData({
-    leftHight: leftH,
-    rightHight: rightH,
-    leftList: leftData,
-    rightList: rightData
-  })
+
+
+
 },
 
-async isLeft() {
-  const { list, leftList, rightList } = this.data;
-  query = wx.createSelectorQuery();
-  for (const item of list) {
-   leftHeight <= rightHeight ? leftList.push(item) : rightList.push(item); //判断两边高度，来觉得添加到那边
-   await this.getBoxHeight(leftList, rightList);
-  }
- },
- getBoxHeight(leftList, rightList) { //获取左右两边高度
-  return new Promise((resolve, reject) => {
-   this.setData({ leftList, rightList }, () => {
-    query.select('#left').boundingClientRect();
-    query.select('#right').boundingClientRect();
-    query.exec((res) => {
-     leftHeight = res[0].height; //获取左边列表的高度
-     rightHeight = res[1].height; //获取右边列表的高度
-     resolve();
-    });
-   });
-  })
- },
+
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.videoContext = wx.createVideoContext('myVideo')
   },
-
+  bindplay() {
+    this.setData({
+      isShow:false
+    })
+    this.videoContext.play();
+    console.log('play')
+  },
+   // 监听播放到末尾时触发
+   bindended(){
+    console.log('bindended')
+    this.setData({
+      isShow: true
+    })
+    this.videoContext.ended();
+  },
+  // 监听暂停播放时触发
+  bindpause(){
+    console.log('pause')
+  },
+  binLike(){
+    
+  },
   /**
    * 生命周期函数--监听页面显示
    */
