@@ -9,23 +9,31 @@
         <van-icon name="font-o" size="15px" />
         <text>by {{CommonInfo.appname}}</text>
     </view>
+    <!-- 视频 -->
     <view class="VideoBox">
       <!-- <video src="{{Opusdata2.cdnurl+Opusdata2.video.filepath}}"  poster=""></video> -->
-    </view>
-    <video id="myVideo" src="{{videoSrc}}" enable-danmu controls show-fullscreen-btn show-center-play-btn="{{false}}" auto-pause-if-navigate auto-pause-if-open-native show-play-btn object-fit="fill" bindpause="bindpause" bindended="bindended" >
+
+    <video id="myVideo" src="{{videoSrc}}"  enable-danmu controls show-fullscreen-btn show-center-play-btn="{{false}}" auto-pause-if-navigate auto-pause-if-open-native show-play-btn object-fit="fill" bindpause="bindpause" bindended="bindended" >
       <view class="video_cover" wx:if="{{isShow}}" bindtap="bindplay">
-        <cover-image src="{{videoCoverImg}}" mode="widthFix"></cover-image>
+        <!-- <cover-image src="{{videoCoverImg}}" mode="widthFix"></cover-image> -->
         <van-icon class="video_play_icon" name="play-circle" size="35px"/>
       </view>
     </video>
-
-
-  <view class="authorAllimg" wx:for="{{Opusdata}}" wx:key="id">
-      <image src="{{item.filepath}}"></image>
   </view>
+<!-- 瀑布流图片 -->
+  <!-- <view class="authorAllimg" ></view> -->
+  <!-- 瀑布流插件 -->
+<view class="page_1">
+  <yys-waterfallFlow noramalData='{{ pageData }}' middleGap='{{ middleGap }}' cuSlotHeight1='60' bind:clickDom='test'>
+  </yys-waterfallFlow>
+</view>
+
+
+  <!-- 喜欢、浏览统计 -->
   <view class="LikeBox">
-        <view class="LikeIcon">
-          <image src=""></image>
+        <view class="LikeIcon"  >
+          <image catch:tap="handleClickShow"   wx:if="{{Imgshow}}" src="../images/like.png" />
+          <image catch:tap="handleClickShow"   wx:else src="../images/like_select.png" />
         </view>
         <view class="Statistics">
           <text>{{Opusdata2.liketimes}}人喜欢</text> / <text>{{Opusdata2.looktimes}}次浏览</text>

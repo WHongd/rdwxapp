@@ -20,8 +20,38 @@ text-align: center;
 /* -------- */
 
 .authorAllimg{
-
+  display: flex;
+  padding: 10rpx 10rpx;
+  box-sizing: border-box;
 }
+.leftContainer {
+  display: flex;
+  margin-right: 10rpx;
+  flex-direction: column;
+  }
+  
+  .rightContainer {
+  display: flex;
+  flex-direction: column;
+  }
+  
+  .cateItem {
+  margin-bottom: 5rpx;
+  }
+  
+  .item {
+  width: 360rpx;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 6rpx;
+  }
+  
+  .itemImg {
+  margin-bottom: 14rpx;
+  width: 100%;
+  vertical-align: middle;
+  border-radius: 6rpx;
+  }
 .VideoBox{
   width:100%;
   padding:20px 0;
@@ -58,7 +88,62 @@ text-align: center;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #999999;
   margin:0 auto;
-  /* margin-bottom: 10px; */
+}
+.LikeIcon image{
+  margin-top:8px;
+  width: 32px;
+  height: 32px;
+}
+
+
+/* 
+  图片自定义样式
+ */
+/* 瀑布图片整体样式 */
+.waterfall-image{
+  border-radius: 10px;
+}
+/* 左瀑布图片样式 */
+.waterfall-image-left{
+  margin-left: 10px;
+  border: 1px solid red;
+}
+/* 右瀑布图片样式 */
+.waterfall-image-right{
+  margin-right: 10px;
+  border: 1px solid rebeccapurple;
+}
+
+/* 
+  标题自定义样式
+*/
+/* 标题整体样式 */
+.waterfall-title{
+  background-color: yellow;
+}
+/* 标题文字自定义样式 */
+.waterfall-title spen{
+  color: green;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+/* 
+  节点样式
+*/
+.page_slot{
+  width: 100%;
+  height: 50px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  /* background-color: aqua; */
+}
+.zdy-spen{
+  color: rgb(116, 187, 187);
+  font-size: 13px;
+  font-weight: 700;
 }
