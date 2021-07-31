@@ -3,11 +3,11 @@ module.exports = (url,method,data,header)=>{
   return new Promise((resolve,reject)=>{
     wx.request({
       url:conf.conf.weburl+'/api/wxapp/'+url,
-      data:data,
       method:method,
+      data:data,
       header:{
         'Accept': 'application/json',
-        'content-type': 'multipart/form-data',
+        'content-type': 'application/json',
         'token': header,
       },
       success:resolve,

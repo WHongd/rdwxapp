@@ -54,7 +54,6 @@
       <van-loading wx:else custom-class="van-action-sheet__loading" size="22px" />
     </button>
   </view>
-  <slot />
   <block wx:if="{{ cancelText }}">
     <view class="van-action-sheet__gap" />
     <view

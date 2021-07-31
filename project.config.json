@@ -4,16 +4,16 @@
     "ignore": []
   },
   "setting": {
-    "urlCheck": false,
+    "urlCheck": true,
     "es6": true,
-    "enhance": false,
+    "enhance": true,
     "postcss": true,
     "preloadBackgroundData": false,
     "minified": true,
     "newFeature": false,
     "coverView": true,
-    "nodeModules": true,
-    "autoAudits": false,
+    "nodeModules": false,
+    "autoAudits": true,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
     "uglifyFileName": false,
@@ -39,7 +39,7 @@
     "showES6CompileOption": false
   },
   "compileType": "miniprogram",
-  "libVersion": "2.18.0",
+  "libVersion": "2.18.1",
   "appid": "wx745dfe396aa55a5c",
   "projectname": "%E6%97%85%E5%BF%83%E8%AE%B0%E5%BD%B1%E5%83%8F",
   "debugOptions": {
@@ -51,6 +51,8 @@
     "servePath": ""
   },
   "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
   "condition": {
     "search": {
       "list": []

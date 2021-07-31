@@ -32,6 +32,7 @@ Page({
   onLoad: function (options) {
  // 接收post.js传进来的postid值。
   var postId = options.id;
+ // var title=JSON.parse(decodeURIComponent(options.title));
   this.data.workid=options.id;
   let detId = options.id;//点赞
   let _this = this;//点赞
@@ -40,7 +41,12 @@ Page({
   })
   _this.getCollected();//此方法是：页面加载时，获取缓存中的状态
 
- fetch("getwork","GET",{workid:postId}).then(res=>{
+  fetch("addlooknum","POST",{appid:app.globalData.appid,workid:postId}).then(res=>{
+    if(res.data.code==1){ 
+      console.log(res.data.msg);
+    }
+  });
+  fetch("getwork","GET",{workid:postId}).then(res=>{
   if(res.data.code==1){
     var j=0;
     for(var i in res.data.data){
@@ -68,7 +74,9 @@ Page({
         'liketimes':res.data.data.liketimes,
         'looktimes':res.data.data.looktimes,
         'video':res['data']['data']['video'][0],
-        'cdnurl':app.globalData.cdnurl
+        'cdnurl':app.globalData.cdnurl,
+        'mainphoto':app.globalData.cdnurl+res.data.data.mainphoto,
+        'title':res.data.data.title
       }
       this.setData({Opusdata2:commdata})//调用作品数据
         // 瀑布流
@@ -94,7 +102,7 @@ Page({
   }
     });
 
-fetch("wxnotice","GET",{appid:app.globalData.appid}).then(res=>{
+  fetch("wxnotice","GET",{appid:app.globalData.appid}).then(res=>{
   if(res.data.code==1){
     res['data']['data']['appname']=app.globalData.appname
     wx.setStorageSync('commoninfo', res.data.data);
@@ -128,6 +136,7 @@ addPageInfo(){
       }
       imgdata.push(this.data.moNiData[i]);
     }
+    console.log(imgdata);
     imgdata.forEach((ele,i) => {
       ele.id =i;//+ '-' + new Date().getTime(); // 模拟获取随机ID
       arr.push(ele);
@@ -197,8 +206,7 @@ addPageInfo(){
     console.log(getSecCollectState);
      if(!getSecCollectState){//
       console.log("点赞操作");
-      fetch("addlikenum","POST",{appid:app.globalData.appid}).then(res=>{
-        console.log(res);
+      fetch("addlikenum","POST",{'appid':app.globalData.appid,'workid':this.data.workid}).then(res=>{
         if(res.data.code==1){
           console.log(res.data.msg);
         }else{
@@ -208,7 +216,6 @@ addPageInfo(){
      }else{
       console.log("取消操作");
       fetch("cutdownlikenum","POST",{'appid':app.globalData.appid,'workid':this.data.workid}).then(res=>{
-        console.log(res);
         if(res.data.code==1){
           console.log(res.data.msg);
         }else{

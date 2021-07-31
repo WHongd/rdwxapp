@@ -13,7 +13,6 @@
       <slot wx:else name="thumb" />
       <van-tag
         wx:if="{{ tag }}"
-        mark
         type="danger"
         custom-class="van-card__tag"
       >

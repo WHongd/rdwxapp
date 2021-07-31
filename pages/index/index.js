@@ -90,11 +90,12 @@ Page({
       console.log("获取号码出错:"+e);
     }
   },
+
   onOpusTap:function(event){
     var postId = event.currentTarget.dataset.postid;
-    // console.log(postId);
+    //这里的title 因为携带特殊字符，所以需要json格式化 再进行url编码
+    var title = event.currentTarget.dataset.title;
     wx.navigateTo({
-      // 将作品块的postid穿进去
       url: '../opus-detail/opus-detail?id='+postId,
     })
   },

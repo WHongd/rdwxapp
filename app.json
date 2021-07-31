@@ -4,8 +4,7 @@
     "pages/book/book",
     "pages/opus/opus",
     "pages/my/my",
-    "pages/opus-detail/opus-detail",
-    "pages/logs/logs"
+    "pages/opus-detail/opus-detail"
   ],
   "window":{
     "backgroundTextStyle":"light",

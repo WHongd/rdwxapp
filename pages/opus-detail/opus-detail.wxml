@@ -1,10 +1,10 @@
 <view class="DetailCentent">
   <view class="TopImg">
-    <van-image use-loading-slot class="" width="100%"   fit="widthFix" src="https://file.51zzsc.cn/uploads/20210725/FvOIW1QWbXcoqc3CgQG8x6SOnnL1.jpg">
+    <van-image use-loading-slot class="" width="100%"   fit="widthFix" src="{{Opusdata2.mainphoto}}">
         <van-loading slot="loading" type="spinner" size="20" vertical />
       </van-image>
   </view>
-  <view class="DetailTitle">-某某某的婚礼-</view>
+  <view class="DetailTitle">{{Opusdata2.title}}</view>
     <view class="authorBox">
         <van-icon name="font-o" size="15px" />
         <text>by {{CommonInfo.appname}}</text>
