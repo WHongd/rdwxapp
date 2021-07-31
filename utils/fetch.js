@@ -7,7 +7,7 @@ module.exports = (url,method,data,header)=>{
       method:method,
       header:{
         'Accept': 'application/json',
-        'content-type': 'application/json',
+        'content-type': 'multipart/form-data',
         'token': header,
       },
       success:resolve,
