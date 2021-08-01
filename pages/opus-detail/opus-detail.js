@@ -111,10 +111,19 @@ Page({
     });
 },
 
-// 获取点击事件
-test(data){
-  console.log(data)
+// 显示预览图
+showpreview(event){
+  var imgList=[];
+  for(var i=0;i<this.data.moNiData.length;i++){
+    imgList.push(this.data.moNiData[i].image);
+  }
+  wx.previewImage({
+    current: event.detail.image, // 当前显示图片的http链接
+    urls: imgList // 需要预览的图片http链接列表
+  })
 },
+
+
 // 增加数据
 addPageInfo(){
     var arr = this.data.pageInfo; // 总数据集合（节点ID使用）

@@ -147,3 +147,68 @@ text-align: center;
   font-size: 13px;
   font-weight: 700;
 }
+/* 分享按钮 */
+.shareBtn{
+  position: fixed;
+  top:5%;
+  right: -15px;
+  width: 60px;
+  height: 40px;
+  z-index: 99;
+}
+.shareBtn button{
+  background-color: #1989fa;
+  border:none;
+  border-radius: 25px;
+  color: white;
+  font-size: 12px;
+  padding:0 8px;
+}
+
+.BottomFixed{
+  width: 100%;
+  height: 45px;
+  position: fixed;
+  bottom:0;
+  left: 0;
+  border:1rpx solid #c1c2c4;
+  /* padding:10px 0 10px 0px; */
+}
+
+.Info_left{
+float: left;  
+padding-left: 10px;
+}
+.Info_logo{
+padding-top:10px;  
+}
+.Info_right{
+  float: left;
+  text-align: center;
+}
+.Info_name{
+font-size: 12px;
+}
+.Info_content{
+  font-size: 8px;
+  display: block;
+  margin-left: 10px;
+}
+.Content_pay{
+  text-align: center;
+  border-left: 1rpx solid #c1c2c4;
+  border-right: 1rpx solid #c1c2c4;
+}
+.Content_pay text{
+  display: block;
+  font-size: 12px;
+}
+.Make_btn{
+  height: 45px;
+  width: 100%;
+  background-color:#1989fa;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  line-height: 45px;
+}

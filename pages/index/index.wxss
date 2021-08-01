@@ -287,12 +287,10 @@ margin-bottom: 3px;
 }
 .SuspensionMenu{
   width: 70px;
-  /* height: 130px; */
   position: fixed;
   position:-webkit-fixed;
   bottom: 50px;
   right: 10px;
-  /* border:1rpx solid; */
   z-index: 99;
 }
 .Suspension_my , .Suspension_subscribe{

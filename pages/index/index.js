@@ -110,7 +110,6 @@ Enlarge:function(event){
   let num=imgList.indexOf(img)  // 返回当前图片的位置  不用循环
   imgList.splice(num,1)
   imgList.unshift(img)
-
     //图片预览
     wx.previewImage({
       current: img, //当前显示的图片
