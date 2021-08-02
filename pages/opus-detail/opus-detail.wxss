@@ -244,7 +244,7 @@ font-size: 12px;
 }
 .ContactInformation_y{
   padding:15px 20px;
-  margin-bottom: 130px;
+  padding-bottom:100px;
 }
 .CommoninfoBox{
   border-bottom:1px dotted #c1c2c4;
