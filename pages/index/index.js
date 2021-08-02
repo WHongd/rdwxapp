@@ -22,8 +22,8 @@ Page({
     MenuList:[
      {"id":1, "title":"主页","url":"/pages/index/index"},
      {"id":2,  "title":"作品","url":"/pages/opus/opus"},
-     {"id":3, "title":"评价","url":"/pages/dashboard/index"},
-     {"id":4,  "title":"关于","url":"/pages/dashboard/index"},
+     {"id":3, "title":"评价","url":"/pages/evaluate/evaluate"},
+     {"id":4,  "title":"关于","url":"/pages/about/about"},
      {"id":5,  "title":"我的","url":"/pages/my/my"},
     ],
 

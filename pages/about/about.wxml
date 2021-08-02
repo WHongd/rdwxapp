@@ -34,3 +34,48 @@
   </view>
 </view>
 <view class="Contact_btn">联系我们</view>
+<view class="Grid_imgBox">
+  <van-grid   column-num="3" border="{{ false }}"  >
+  <van-grid-item use-slot wx:for="{{ WorkPromotion }}"  wx:key="id">
+    <image class="grid_img"  src="{{item.mainphoto}}" lazy-load="{{true}}"/>
+  </van-grid-item>
+</van-grid>
+</view>
+
+<view class="MapBox">
+  <view class="MapInfo">  
+    <van-icon name="location-o" size="15px"/>
+    <text>贵州省黔东南苗族侗族自治州凯里市风情大道32号</text>
+  </view>
+  <map 
+  id="mapId"
+  class="map"
+  latitude="{{latitude}}"
+  longitude="{{longitude}}"
+  bindmarkertap="onMarkerTap"
+  bindcallouttap="onCalloutTap"
+  markers="{{markers}}"
+  scale="14"
+  bindlabeltap="onLabelTap"
+></map>
+</view>
+
+<!-- 联系方式 -->
+<view class="ContactInformation">
+  <view class="Contact">
+    <text>电话：{{CommonInfo.phone}}</text>
+    <text>地址：{{CommonInfo.address}}</text>
+    <text>微信：{{CommonInfo.wechat}}</text>
+    <view class="SocialAccounts">
+      <view class="SocialAccounts_icon">
+        <van-image width="20" height="20" bindtap="callphone" src="http://cdn.jiemufang.com/phone.png" />
+      </view>
+      <view class="SocialAccounts_icon">
+        <van-image width="20" height="20" src="http://cdn.jiemufang.com/wb.png" />
+      </view>
+      <view class="SocialAccounts_icon">
+        <van-image width="20" height="20"  src="http://cdn.jiemufang.com/wx.png" />
+      </view>
+    </view>
+  </view>
+</view>

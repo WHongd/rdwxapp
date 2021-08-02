@@ -5,7 +5,8 @@
     "pages/opus/opus",
     "pages/my/my",
     "pages/opus-detail/opus-detail",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/evaluate/evaluate"
   ],
   "window":{
     "backgroundTextStyle":"light",
