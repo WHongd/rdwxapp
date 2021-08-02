@@ -66,7 +66,35 @@ Page({
       });
 
   },
- 
+    /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+    if (wx.canIUse('hideHomeButton')) {
+      wx.hideHomeButton()
+    }
+  },
+ Gobook:function(){
+  wx.navigateTo({
+    url: '../book/book',
+  })
+ },
+ Gomy:function(){
+   wx.redirectTo({
+    url: '../my/my',
+   })
+  // wx.navigateTo({
+  //   url: '../my/my',
+  // })
+},
   // 左侧滑出菜单
   showPopup() {
     this.setData({ show: true });

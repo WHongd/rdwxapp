@@ -1,0 +1,36 @@
+<!--pages/about/about.wxml-->
+<view class="InTop">
+  <view class="Name">
+    <van-icon name="font-o" size="25px" />
+    <text>热度影像</text>
+  </view>
+  <view class="menu">
+    <van-icon name="wap-nav" size="20px"  color="white" is-link bind:click="showPopup"/>
+    <van-popup  show="{{ show }}" position="left" custom-style="height: 100%;" bind:close="onClose"  class="Menu_popup" >
+      <view class="Menu_popup_list">
+         <view style="height:50px;"></view>
+       </view>
+       <view class="Menu_popup_list" wx:for="{{MenuList}}" wx:for-item="MenuList" wx:for-index="index" wx:key="id">
+        <text class="Circular "></text>
+          <van-cell class="van-cell__title_select" border="{{false}}" title="{{MenuList.title}}" link-type="navigateTo" url="{{MenuList.url}}"/>
+       </view>  
+    </van-popup>
+  </view>
+</view>
+<view class="About_Info">
+  <van-icon name="font-o" size="45px" />
+</view>
+<view class="About_name">
+  <text class="About_appname">{{CommonInfo.appname}}</text>
+  <text class="About_slogan">记录您的每一寸时光</text>
+  <text  class="About_address">贵州 凯里</text>
+</view>
+<view class="Slogan_addBox">
+  <view class="Slogan_add">
+    <view class="Symbol_left">“</view>
+    <view class="center">时光会走远 影像能长存</view>
+    <view class="add center">{{CommonInfo.website}}</view>
+    <view class="Symbol_right">”</view>
+  </view>
+</view>
+<view class="Contact_btn">联系我们</view>

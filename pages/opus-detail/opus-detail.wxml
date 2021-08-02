@@ -32,6 +32,7 @@
 </view>
 
   <!-- 喜欢、浏览统计 -->
+  <!-- <view class="{{isIphoneX ?'LikeBox_Y':'LikeBox'}}"> -->
   <view class="LikeBox">
         <view class="LikeIcon"  >
           <image catch:tap="handleClickShow"   wx:if="{{Imgshow}}" src="../images/like.png" />
@@ -40,9 +41,24 @@
         <view class="Statistics">
           <text>{{Opusdata2.liketimes}}人喜欢</text> / <text>{{Opusdata2.looktimes}}次浏览</text>
         </view>
-      </view>
+   </view>
+   <view class="Septum"></view>
+   <view class="{{isIphoneX ?'ContactInformation_y':'ContactInformation'}}">
+    <view class="CommoninfoBox">
+      <van-icon name="font-o" /> 
+      <text class="CommoninfoName">{{CommonInfo.appname}}</text>
+    </view>
+    <view class="CommoninfoBox">
+      <text class="grey">电话：</text>
+      <text >{{CommonInfo.phone}}</text>
+    </view>
+    <view class="CommoninfoBox">
+      <text class="grey">地址：</text>
+      <text >{{CommonInfo.address}}</text>
+    </view>
+   </view>
       <!-- 底部固定预约 -->
-    <view class="BottomFixed">
+    <view class="{{isIphoneX ?'BottomFixed_Y':'BottomFixed'}}">
       <van-row>
         <van-col span="13" >
         <view class="Info_left"> <van-icon class="Info_logo" name="font-o" size="18px" /></view>

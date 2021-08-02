@@ -23,7 +23,19 @@ App({
   globalData:{ 
       appid:conf.conf.appid,
       weburl:conf.conf.weburl,
-      cdnurl:conf.conf.cdnurl
+      cdnurl:conf.conf.cdnurl,
+      isIphoneX: false//判断是否是iPhoneX
+  },
+  onShow:function(){
+    var that = this;
+    wx.getSystemInfo({
+      success: (res) => {
+        let modelmes = res.model;
+        if (modelmes.search('iPhone X') != -1) {
+          that.globalData.isIphoneX = true
+        }
+      },
+    })
   },
   MenuList:[
       {"id":1, "title":"主页","url":"/pages/dashboard/index"},

@@ -1,0 +1,68 @@
+<!--pages/opus/opus.wxml-->
+<view class="InTop">
+  <view class="Name">
+    <van-icon name="font-o" size="25px" />
+    <text>热度影像</text>
+  </view>
+  <view class="menu">
+    <van-icon name="wap-nav" size="20px"  color="white" is-link bind:click="showPopup"/>
+    <van-popup  show="{{ show }}" position="left" custom-style="height: 100%;" bind:close="onClose"  class="Menu_popup" >
+      <view class="Menu_popup_list">
+         <view style="height:50px;"></view>
+       </view>
+       <view class="Menu_popup_list" wx:for="{{MenuList}}" wx:for-item="MenuList" wx:for-index="index" wx:key="id">
+        <text class="Circular "></text>
+          <van-cell class="van-cell__title_select" border="{{false}}" title="{{MenuList.title}}" link-type="navigateTo" url="{{MenuList.url}}"/>
+       </view>  
+    </van-popup>
+  </view>
+</view>
+<view class="OpusTitleBox">
+    <view class="Opustitle">作品/SHOW</view>
+    <text>record the happlest moments</text>
+</view>
+<view class="OpustBox" wx:for="{{list}}" wx:key="id">
+  <van-image  width="100%" height="200px" use-loading-slot  fit="cover"  src="{{item.mainphoto}}">
+        <van-loading slot="loading" type="spinner" size="20" vertical />
+  </van-image>
+  <view class="OpustTitleinfo">{{item.title}}</view>
+  <view class="OpustKey">{{item.type}}</view>
+  <view class="OpustMore">
+    <view class="van-multi-ellipsis--l2"> {{item.content}}</view> 
+    <text>[ MORE..]</text>
+  </view>
+  <view class="OpustShare">
+    <view class="OshareIcon">
+      <van-icon name="share-o" />
+      <text>分享</text>
+    </view>
+    <view class="OmoreIcon">
+      <van-icon name="more-o" />
+      <text>更多</text>
+    </view>
+  </view>
+</view>
+<import src ="../common/common.wxml"/>
+<template is="tp" data="{{phone:CommonInfo.phone,address:CommonInfo.address,wechat:CommonInfo.wechat}}"/>
+<!-- 联系方式 -->
+<!-- <view class="ContactInformation">
+  <view class="Contact">
+    <text>电话：13122222222</text>
+    <text>地址：贵州省黔东南州凯里市XXXXXXX</text>
+    <text>官网：www.lxjyingxiang.com</text>
+    <view class="SocialAccounts">
+      <view class="SocialAccounts_icon">
+        <van-image width="20" height="20" src="http://cdn.jiemufang.com/phone.png" />
+      </view>
+      <view class="SocialAccounts_icon">
+        <van-image width="20" height="20" src="http://cdn.jiemufang.com/wb.png" />
+      </view>
+      <view class="SocialAccounts_icon">
+        <van-image width="20" height="20" src="http://cdn.jiemufang.com/wx.png" />
+      </view>
+    </view>
+  </view>
+</view> -->
+
+
+

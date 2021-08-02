@@ -117,11 +117,11 @@
 </view>
 <!-- 悬浮 -->
 <view class="SuspensionMenu">
-  <view class="Suspension_subscribe">
+  <view class="Suspension_subscribe" bindtap="Gobook">
     <van-icon name="chat-o" color="white" size="1.5em"/>
     <text>预约</text>
   </view>
-  <view class="Suspension_my">
+  <view class="Suspension_my" bindtap="Gomy">
     <van-icon name="user-circle-o" size="1.5em"/>
     <text>我的</text>
   </view>

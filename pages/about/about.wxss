@@ -1,0 +1,64 @@
+/* pages/about/about.wxss */
+@import '/miniprogram_npm/@vant/weapp/common/index.wxss';
+@import '/pages/index/index.wxss';
+.About_Info{
+  text-align: center;
+  padding:30px 0 20px 0;
+}
+.About_name{
+  padding-bottom:15px;
+}
+.About_appname{
+  text-align: center;
+  display: block;
+  font-weight: bold;
+  font-size: 16px;
+  padding:10px 0;
+}
+.About_slogan{
+  display: block;
+  text-align: center;
+  padding-bottom:10px;
+  color: #f5b428;
+}
+.About_address{
+  display: block;
+  text-align: center;
+  color: #919292;
+}
+.Slogan_addBox{
+  padding:0 20px;
+  margin-bottom: 20px;
+}
+.Slogan_add{
+  background-color: rgb(247, 247, 247);
+}
+.Symbol_left{
+ display: flex;
+ justify-content: flex-start;
+}
+.Symbol_right{
+display: flex;
+justify-content: flex-end;
+}
+.Symbol_left,.Symbol_right{
+  color: rgb(171, 171, 171);
+  font-size: 40px;
+  padding:10px;
+}
+.center{
+  text-align: center;
+}
+.add{
+  font-size:12px;
+  margin-top:10px;
+}
+.Contact_btn{
+  background-color: #1989fa;
+  color: white;
+  text-align: center;
+  margin:0 auto;
+  width: 25%;
+  font-size: 14px;
+  padding:10px;
+}

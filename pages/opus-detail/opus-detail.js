@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isIphoneX: false,
     loadImgStatus:0,//图片预加载状态
     nowLoadImgNum:0,//当前加载到的图片数
     allowLoadnum:4,//允许一次加载几张
@@ -30,6 +31,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+// 判断是否为iPhoneX
+var isIphoneX = app.globalData.isIphoneX;
+console.log(isIphoneX ? '是iPhoneX' : '不是iPhoneX')
+this.setData({
+  isIphoneX: isIphoneX
+})
+
  // 接收post.js传进来的postid值。
   var postId = options.id;
  // var title=JSON.parse(decodeURIComponent(options.title));
