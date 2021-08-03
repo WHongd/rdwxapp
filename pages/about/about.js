@@ -61,10 +61,12 @@ onCloseWeixin(){
     this.mapCtx = wx.createMapContext('mapId')
     fetch("wxnotice","GET",{appid:app.globalData.appid}).then(res=>{
       if(res.data.code==1){
+        console.log(11111111);
         res['data']['data']['appname']=app.globalData.appname
-        wx.setStorageSync('commoninfo', res.data.data);
         this.setData({CommonInfo:res.data.data})//调用公共信息数据
+        wx.setStorageSync('commoninfo', res.data.data);
       }
+    
         });
     fetch("getworkslist","GET",).then(res=>{
       if(res.data.code==1){

@@ -66,19 +66,13 @@ confirmPublish: function () {
 },
   
 onPopup(event) {
-  console.log("点击了")
   this.setData({ Timeshow: true })
-  // const { picker, value, index } = event.detail;
-  // Toast(`当前值：${value}, 当前索引：${index}`);
 },
 TimeCancel() {
   this.setData({ Timeshow: false })
 },
-
-
 onChange(event) {
   const { picker, value, index } = event.detail;
-  // Toast(`当前值：${value}, 当前索引：${index}`);
   console.log(`当前值：${value}, 当前索引：${index}`)
 },
 onCancel() {

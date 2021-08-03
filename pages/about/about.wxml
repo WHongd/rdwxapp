@@ -22,13 +22,13 @@
 </view>
 <view class="About_name">
   <text class="About_appname">{{CommonInfo.appname}}</text>
-  <text class="About_slogan">记录您的每一寸时光</text>
+  <text class="About_slogan">{{CommonInfo.content}}</text>
   <text  class="About_address">贵州 凯里</text>
 </view>
 <view class="Slogan_addBox">
   <view class="Slogan_add">
     <view class="Symbol_left">“</view>
-    <view class="center">时光会走远 影像能长存</view>
+    <view class="center">{{CommonInfo.talk}}</view>
     <view class="add center">{{CommonInfo.website}}</view>
     <view class="Symbol_right">”</view>
   </view>
