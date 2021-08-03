@@ -37,9 +37,9 @@
           <van-cell title-width="180rpx"  title="服务时间：" icon="notes-o"  border="{{false}}" clickable="{{true}}"/>
         </van-col>
         <van-col span="16" class="book_centent_right" >
-          <van-cell title="请选择服务时间 " is-link  bind:click="onPopup"/>
+          <van-cell title="请选择服务时间" is-link  bind:click="onPopup"/>
           <van-popup show="{{ Timeshow }}" position="bottom"  closeable  custom-style="height: 30%"   bind:close="TimeCancel">
-            <van-picker  columns="{{ columns }}"   bind:change="onChange" bin:cancel="onCancel"/>
+            <van-picker columns="{{ columns }}"  bind:change="onChange" bin:cancel="onCancel"/>
           </van-popup>
           <!-- <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" /> -->
     
