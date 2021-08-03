@@ -5,7 +5,17 @@
       </van-image>
   </view>
   <!-- 分享按钮 -->
-  <view  class="shareBtn" ><button open-type='share'>分享</button></view>
+  <view  class="shareBtn" >
+    <!-- <text>分享</text> -->
+    <van-cell  title="分享" bind:click="onClick" border="{{false}}"/>
+      <van-share-sheet
+        show="{{ showShare }}"
+        title="立即分享给好友"
+        options="{{ options }}"
+        bind:select="onSelect"
+        bind:close="onClose"
+      />
+  </view>
 
   <view class="DetailTitle">{{Opusdata2.title}}</view>
     <view class="authorBox">

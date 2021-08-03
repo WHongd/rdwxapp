@@ -8,6 +8,7 @@ Page({
     loading:true,
     container: null,
     show:false,//左侧菜单滑动
+    weixinShow:false,
     autoplay:true,
     interval: 3000,
     duration: 600,
@@ -65,7 +66,16 @@ Page({
     }
       });
 
+ 
   },
+  ShowWeixin(){
+    this.setData({ weixinShow: true });
+  },
+  onCloseWeixin(){
+    this.setData({ weixinShow: false });
+
+  },
+ 
     /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -78,9 +88,7 @@ Page({
    */
   onShow: function () {
 
-    if (wx.canIUse('hideHomeButton')) {
-      wx.hideHomeButton()
-    }
+  
   },
  Gobook:function(){
   wx.navigateTo({

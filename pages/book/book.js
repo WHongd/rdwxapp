@@ -1,4 +1,7 @@
 // pages/test/test.js
+// import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
+// import Toast from '../../node_modules/@vant/weapp/dist/toast/toast';
+
 Page({
 
   /**
@@ -10,6 +13,7 @@ Page({
       maxDate: new Date().setFullYear(new Date().getFullYear() + 2),
       taskStartTime: '',
       time: '',
+      Timeshow:false,
       show:false,
       autoSize: {
         maxHeight: 60,
@@ -61,8 +65,26 @@ confirmPublish: function () {
   console.log("选择的日期为："+ this.data.taskStartTime);
 },
   
+onPopup(event) {
+  console.log("点击了")
+  this.setData({ Timeshow: true })
+  // const { picker, value, index } = event.detail;
+  // Toast(`当前值：${value}, 当前索引：${index}`);
+},
+TimeCancel() {
+  this.setData({ Timeshow: false })
+},
 
 
+onChange(event) {
+  const { picker, value, index } = event.detail;
+  // Toast(`当前值：${value}, 当前索引：${index}`);
+  console.log(`当前值：${value}, 当前索引：${index}`)
+},
+onCancel() {
+  // Toast('取消');
+  console.log('取消')
+},
 
 
   /**

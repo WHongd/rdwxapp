@@ -5,11 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    weixinShow:false,
   },
 
 
+  ShowWeixin(){
+    console.log(123)
+    this.setData({ weixinShow: true });
+  },
+  onCloseWeixin(){
+    this.setData({ weixinShow: false });
   
+  },
   /**
    * 生命周期函数--监听页面加载
    */

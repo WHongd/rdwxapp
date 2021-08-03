@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    weixinShow:false,
     show:false,//左侧菜单滑动
     latitude: 26.557392,
     longitude: 107.972681,
@@ -46,7 +47,13 @@ onClose() {
 },
 
 //  左侧滑出菜单 end
+ShowWeixin(){
+  this.setData({ weixinShow: true });
+},
+onCloseWeixin(){
+  this.setData({ weixinShow: false });
 
+},
   /**
    * 生命周期函数--监听页面加载
    */

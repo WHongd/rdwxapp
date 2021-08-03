@@ -1,6 +1,5 @@
 // pages/opus/opus.js
 const fetch= require("../../utils/fetch.js");
-
 const app = getApp();
 Page({
 
@@ -8,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    weixinShow:false,
     show:false,//左侧菜单滑动
     list:[],
     MenuList:[
@@ -27,9 +27,23 @@ Page({
 onClose() {
   this.setData({ show: false });
 },
-
-
 //  左侧滑出菜单 end
+ShowWeixin(){
+  this.setData({ weixinShow: true });
+},
+onCloseWeixin(){
+  this.setData({ weixinShow: false });
+
+},
+onOpusTap:function(event){
+  var postId = event.currentTarget.dataset.postid;
+  //这里的title 因为携带特殊字符，所以需要json格式化 再进行url编码
+  var title = event.currentTarget.dataset.title;
+  wx.navigateTo({
+    url: '../opus-detail/opus-detail?id='+postId,
+  })
+},
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -79,7 +93,13 @@ onClose() {
       console.log("获取号码出错:"+e);
     }
   },
-  
+  ShowWeixin(){
+    this.setData({ weixinShow: true });
+  },
+  onCloseWeixin(){
+    this.setData({ weixinShow: false });
+
+  },
   /**
    * 生命周期函数--监听页面显示
    */

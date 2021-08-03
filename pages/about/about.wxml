@@ -73,8 +73,21 @@
       <view class="SocialAccounts_icon">
         <van-image width="20" height="20" src="http://cdn.jiemufang.com/wb.png" />
       </view>
-      <view class="SocialAccounts_icon">
-        <van-image width="20" height="20"  src="http://cdn.jiemufang.com/wx.png" />
+      <view class="SocialAccounts_icon"  >
+        <van-icon name="wechat"  size="20px" color="#bfbfbf" bind:click="ShowWeixin"/>
+        <van-popup show="{{ weixinShow }}" bind:close="onCloseWeixin">
+          <view class="WeixinInfo" >
+            <view class="Public_info">
+              <view class="Public_info_left"> <van-icon name="font-o" size="35px" /></view>
+              <view class="Public_info_right"> 
+              <text class="appname">{{CommonInfo.appname}}</text>
+              <text class="appsolgan">时光会走远 影像能长存</text>
+              </view>
+            </view>
+            <image class="wx_code" mode="widthFix" src="../images/wx_code.jpg"  ></image>
+            <text>微信号：{{CommonInfo.wechat}}</text>
+          </view>
+        </van-popup>
       </view>
     </view>
   </view>

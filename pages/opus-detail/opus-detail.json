@@ -4,7 +4,10 @@
     "van-col": "@vant/weapp/col/index",
     "van-image": "@vant/weapp/image/index",
     "van-icon": "@vant/weapp/icon/index",
-    "yys-waterfallFlow":"../component/yys-waterfallFlow/yys-waterfallFlow"
+    "yys-waterfallFlow":"../component/yys-waterfallFlow/yys-waterfallFlow",
+    "van-share-sheet": "@vant/weapp/share-sheet/index",
+    "van-cell": "@vant/weapp/cell/index",
+  "van-cell-group": "@vant/weapp/cell-group/index"
 
   }
 }

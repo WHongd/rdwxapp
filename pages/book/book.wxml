@@ -32,6 +32,19 @@
             </view>
         </van-col>
       </van-row>
+      <van-row gutter="12"  class="BookCentent">
+        <van-col span="8" class="book_centent_left">
+          <van-cell title-width="180rpx"  title="服务时间：" icon="notes-o"  border="{{false}}" clickable="{{true}}"/>
+        </van-col>
+        <van-col span="16" class="book_centent_right" >
+          <van-cell title="请选择服务时间 " is-link  bind:click="onPopup"/>
+          <van-popup show="{{ Timeshow }}" position="bottom"  closeable  custom-style="height: 30%"   bind:close="TimeCancel">
+            <van-picker  columns="{{ columns }}"   bind:change="onChange" bin:cancel="onCancel"/>
+          </van-popup>
+          <!-- <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" /> -->
+    
+        </van-col>
+      </van-row>
       <!-- 预留信息 -->
       <view class="ReservedInformation">预留信息<text>( 请填写 )</text></view>
       <van-cell-group class="Reserved_box">

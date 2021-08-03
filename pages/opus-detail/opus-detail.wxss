@@ -158,12 +158,12 @@ text-align: center;
 .shareBtn{
   position: fixed;
   top:5%;
-  right: -15px;
+  right: -18px;
   width: 60px;
   height: 40px;
-  z-index: 99;
+  z-index: 999;
 }
-.shareBtn button{
+.shareBtn .van-cell{
   background-color: #1989fa;
   border:none;
   border-radius: 25px;
@@ -180,9 +180,7 @@ text-align: center;
   left: 0;
   background-color: white;
   border:1rpx solid #f1f0f0;
-  z-index: 999;
-  /* padding-bottom:20px; */
-  /* padding:10px 0 10px 0px; */
+  z-index: 99;
 }
 .BottomFixed_Y{
   width: 100%;
@@ -192,7 +190,7 @@ text-align: center;
   left: 0;
   background-color: white;
   border:1rpx solid #f1f0f0;
-  z-index: 999;
+  z-index: 99;
 }
 
 .Info_left{
@@ -254,5 +252,7 @@ font-size: 12px;
 }
 .CommoninfoName{
   margin-left: 35px;
-  /* font-size: 12px; */
+}
+.van-share-sheet__option{
+  margin:0 50px;
 }

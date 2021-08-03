@@ -9,6 +9,7 @@ Page({
    */
   data: {
     isIphoneX: false,
+    showShare: false,
     loadImgStatus:0,//图片预加载状态
     nowLoadImgNum:0,//当前加载到的图片数
     allowLoadnum:4,//允许一次加载几张
@@ -23,7 +24,10 @@ Page({
     videoSrc:'https://file.51zzsc.cn/uploads/20210725/lrtzwLhNSwxlfAPn9sWmsF4CJQpu.mp4',   // 视频
     videoCoverImg:'http://img5.imgtn.bdimg.com/it/u=1672477765,2527992874&fm=26&gp=0.jpg',   // 视频封面图
     videoPlayIcon:'https://img2.baidu.com/it/u=3239379307,1847963789&fm=26&fmt=auto&gp=0.png',  // 视频播放icon
-  
+    options:[
+      {name: '微信好友', icon: 'wechat' },
+      { name: '朋友圈', icon: 'wechat-moments' },
+    ]
   },
  
 
@@ -284,7 +288,40 @@ addPageInfo(){
   /**
    * 用户点击右上角分享
    */
+  // 分享到朋友
   onShareAppMessage: function () {
-
-  }
+    return {
+      title: "测试分享标题",
+      path: '../opus-detail/opus-detail?id=1',
+      // imageUrl:'这个是显示的图片，不写就默认当前页面的截图',
+    }
+  },
+  //分享到朋友圈
+  onShareTimeline(res){
+    console.log(res)
+    return {
+      title: "",
+      path: '../opus-detail/opus-detail?id=1',
+  
+    }
+  },
+  // 分享按钮
+  onClick(event) {
+    this.setData({ showShare: true });
+  },
+  onClose() {
+    this.setData({ showShare: false });
+  },
+  onSelect(event) {
+   console.log(event.detail.name);
+   var name=event.detail.name;
+   if(name=="微信好友"){
+    // onShareAppMessage();
+    console.log(' 选择了微信好友') 
+   }else{
+    console.log(' 选择了朋友圈') 
+    // onShareTimeline();
+   }
+    this.onClose();
+  },
 })
