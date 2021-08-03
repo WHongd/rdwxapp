@@ -10,6 +10,7 @@ Page({
   data: {
     isIphoneX: false,
     showShare: false,
+    commdata:{},//公共数据
     loadImgStatus:0,//图片预加载状态
     nowLoadImgNum:0,//当前加载到的图片数
     allowLoadnum:4,//允许一次加载几张
@@ -25,8 +26,8 @@ Page({
     videoCoverImg:'http://img5.imgtn.bdimg.com/it/u=1672477765,2527992874&fm=26&gp=0.jpg',   // 视频封面图
     videoPlayIcon:'https://img2.baidu.com/it/u=3239379307,1847963789&fm=26&fmt=auto&gp=0.png',  // 视频播放icon
     options:[
-      {name: '微信好友', icon: 'wechat' },
-      { name: '朋友圈', icon: 'wechat-moments' },
+      {name: '微信好友', icon: 'wechat',openType:'share'},
+      { name: '朋友圈', icon: 'wechat-moments'},
     ]
   },
  
@@ -35,6 +36,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+  
+    wx.showShareMenu({
+      withShareTicket: true,
+    })
 // 判断是否为iPhoneX
 var isIphoneX = app.globalData.isIphoneX;
 console.log(isIphoneX ? '是iPhoneX' : '不是iPhoneX')
@@ -90,6 +95,7 @@ this.setData({
         'mainphoto':app.globalData.cdnurl+res.data.data.mainphoto,
         'title':res.data.data.title
       }
+      this.data.commdata=commdata;
       this.setData({Opusdata2:commdata})//调用作品数据
         // 瀑布流
         // 获取模拟数据
@@ -291,18 +297,23 @@ addPageInfo(){
   // 分享到朋友
   onShareAppMessage: function () {
     return {
-      title: "测试分享标题",
-      path: '../opus-detail/opus-detail?id=1',
-      // imageUrl:'这个是显示的图片，不写就默认当前页面的截图',
+      title: this.data.commdata.title,
+      path: '/pages/opus-detail/opus-detail?id='+this.data.workid,
+      imageUrl:this.data.commdata.mainphoto,
+      success:function(res){
+        console.log("转发成功");
+      },fail:function(res){
+        console.log("转发失败");
+      }
     }
   },
   //分享到朋友圈
   onShareTimeline(res){
     console.log(res)
     return {
-      title: "",
-      path: '../opus-detail/opus-detail?id=1',
-  
+      title: this.data.commdata.title,
+      path: '/pages/opus-detail/opus-detail?id='+this.data.workid,
+      imageUrl:this.data.commdata.mainphoto,
     }
   },
   // 分享按钮
@@ -316,11 +327,13 @@ addPageInfo(){
    console.log(event.detail.name);
    var name=event.detail.name;
    if(name=="微信好友"){
-    // onShareAppMessage();
+    //this.onShareAppMessage();
     console.log(' 选择了微信好友') 
    }else{
     console.log(' 选择了朋友圈') 
-    // onShareTimeline();
+      wx.showToast({
+        title: 'text',
+      })
    }
     this.onClose();
   },

@@ -87,13 +87,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
-  
   },
  Gobook:function(){
-  wx.navigateTo({
-    url: '../book/book',
-  })
+  this.Openbook();
  },
  Gomy:function(){
    wx.redirectTo({
@@ -160,7 +156,7 @@ onReady() {
  
 },
 Openbook(){
-    var that = this;
+   // var that = this;
     var code="";
     wx.login({
       success(res){
@@ -176,7 +172,6 @@ Openbook(){
         // console.log(res.userInfo.nickName);
         //将需要的变量存储起来
         wx.setStorageSync("nickname",res.userInfo.nickName);
-        var nickname=wx.getStorageSync('nickname');
         var data=JSON.parse( res.rawData);
         var city="";
         city=data.province+data.city;
@@ -199,6 +194,8 @@ Openbook(){
             //登录成功后的回调
             // console.log(res.data);
             wx.setStorageSync("token",res.data.token);
+            console.log(wx.getStorageSync('token'));
+            console.log(res.data);
             wx.showToast({
               title: '加载中',
               icon:'loading',
@@ -211,9 +208,9 @@ Openbook(){
               })
           }
         })
-        that.setData({//添加及更新UI
-          nickname:res.userInfo.nickName,
-        })
+        // this.setData({//添加及更新UI
+        //   nickname:res.userInfo.nickName,
+        // })
       },
       fail: res => {
         // console.log("获取用户信息失败", res)

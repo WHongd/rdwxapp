@@ -254,5 +254,5 @@ font-size: 12px;
   margin-left: 35px;
 }
 .van-share-sheet__option{
-  margin:0 50px;
+  margin:0 40px;
 }

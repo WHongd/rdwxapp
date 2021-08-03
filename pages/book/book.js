@@ -1,7 +1,8 @@
 // pages/test/test.js
 // import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
 // import Toast from '../../node_modules/@vant/weapp/dist/toast/toast';
-
+const fetch=require('../../utils/fetch');
+const app = getApp();
 Page({
 
   /**
@@ -85,9 +86,19 @@ onCancel() {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this
+    var nickname= wx.getStorageSync("nickname");
+    var token=wx.getStorageSync("token");
+    var that=this;
     that.setData({
-      nickname:options.nicknameData,
+      nickname:nickname
+    })
+    console.log(token);
+    fetch("getproject","GET",{},"").then(res=>{
+      if(res.data.code==1){
+        console.log(res.data.data);
+      }else{
+        console.log(res.data);
+      }
     })
 
   },
