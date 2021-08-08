@@ -53,6 +53,12 @@
           "pathName": "pages/about/about",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/Reservation/Reservation",
+          "pathName": "pages/Reservation/Reservation",
+          "query": "",
+          "scene": null
         }
       ]
     }

@@ -361,5 +361,9 @@ margin-bottom: 3px;
   text-align: left;
   color: #333;
   margin-bottom:20px;
-
 }
+.init{
+  opacity: 0;
+ transform: translateY(-80px)
+}
+

@@ -45,5 +45,4 @@ App({
       {"id":5,  "title":"关于","url":"/pages/dashboard/index"},
       {"id":6,  "title":"我的","url":"/pages/my/my"},
      ],
-
 })

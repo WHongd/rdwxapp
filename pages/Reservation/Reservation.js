@@ -1,4 +1,4 @@
-// pages/my/my.js
+// pages/Reservation/Reservation.js
 const app = getApp();
 Page({
 
@@ -9,15 +9,11 @@ Page({
 
   },
 
-  BackIndex:function(){
-
-  },
-  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  // 判断是否为iPhoneX
+     // 判断是否为iPhoneX
     var isIphoneX = app.globalData.isIphoneX;
     console.log(isIphoneX ? '是iPhoneX' : '不是iPhoneX')
     this.setData({

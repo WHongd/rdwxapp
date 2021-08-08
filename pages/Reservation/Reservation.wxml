@@ -1,0 +1,43 @@
+<!--pages/Reservation/Reservation.wxml-->
+<view class="{{isIphoneX ?'ns_Y':'ns'}}">
+  <view class="Reservation_top">
+  <view class="Reservation_icon"><van-icon name="passed" size="50px"/></view>
+  <text class="Reservation_sucessinfo">预约成功</text>
+  <view class="Reservation_sucessTime">2021-08-09 00:23</view>
+  </view>
+</view>
+<view class="Reservation_card">
+ <van-row  gutter="12">
+  <van-col span="8">
+    <van-cell title-width="180rpx"  title="预约服务：" icon="flower-o"  border="{{false}}" clickable="{{true}}"/>
+  </van-col>
+  <van-col span="16">选片服务........</van-col>
+  </van-row>
+  <van-row  gutter="12">
+  <van-col span="8">
+    <van-cell title-width="180rpx"  title="服务时间：" icon="notes-o"  border="{{false}}" clickable="{{true}}"/>
+  </van-col>
+  <van-col span="16">2021-08-09</van-col>
+  </van-row>
+  <van-row  gutter="12">
+  <van-col span="8">
+    <van-cell title-width="180rpx"  title="预约人：" icon="friends-o"  border="{{false}}" clickable="{{true}}"/>
+  </van-col>
+  <van-col span="16">陈某某</van-col>
+  </van-row>
+  <van-row  gutter="12">
+  <van-col span="8">
+    <van-cell title-width="180rpx"  title="电话：" icon="phone-circle-o"  border="{{false}}" clickable="{{true}}"/>
+  </van-col>
+  <van-col span="16">13122222222</van-col>
+  </van-row>
+  <van-row  gutter="12">
+  <van-col span="8">
+    <van-cell title-width="180rpx"  title="备注信息：" icon="records"  border="{{false}}" clickable="{{true}}"/>
+  </van-col>
+  <van-col span="16">爱距I俺家大世界啊睡觉的啦介绍的框架连接数大佬；</van-col>
+  </van-row>
+  <view class="cancel_btn">
+    <button>取消预约</button>
+  </view>
+</view>

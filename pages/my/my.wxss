@@ -1,9 +1,9 @@
 /* pages/my/my.wxss */
 .MyTop{
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .2);  
-  box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
-  padding:10px 20px;
-  margin-bottom: 30px;
+padding:0 20px;
+}
+.site-img{
+  width: 100%;
 }
 .UserImg{
   width: 70px;
@@ -12,7 +12,7 @@
   overflow:hidden;
 }
 .UserName{
-  padding:15px 0;
+  padding:20px 0;  
 }
 .UserName open-data{
   font-size: 1.2rem;
@@ -22,4 +22,19 @@
 .Mymenu .van-cell{
   padding-top:20px;
   padding-bottom:20px;
+}
+
+.ns {
+  width: 100%;
+  text-align:center;
+  color: white;
+  padding:30px 0;
+  background:linear-gradient(to bottom,#614AF8, rgb(173, 225, 255) );
+}
+.ns_Y{
+  width: 100%;
+  text-align:center;
+  color: white;
+  padding:50px 0;
+  background:linear-gradient(to bottom,#614AF8, rgb(173, 225, 255) );
 }

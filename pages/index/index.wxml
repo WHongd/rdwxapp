@@ -48,19 +48,21 @@
    <h3>作品展示</h3>
    <text>Work Promotion</text>
 </view>
-<van-row >
-  <van-col  wx:for="{{WorkPromotion}}"  wx:for-index="index" wx:key="id" wx:if="{{index<8}}">
-    <view class="opus_data" data-postid="{{item.id}}" data-title="{{item.title}}" bindtap="onOpusTap">
-    <view class="WorkPromotionContent" >
-      <van-image class="WorkPromotionContent_img" width="100%" height="120px" use-loading-slot  fit="cover" src="{{item.mainphoto}}">
-        <van-loading slot="loading" type="spinner" size="20" vertical />
-      </van-image>
-    </view>
-    <view class="WorkPromotionContent_title" >{{item.title}}</view>
-    <text class="WorkPromotionKw">{{item.type}}</text>
-    </view>
-  </van-col>
-</van-row>
+
+  <van-row >
+    <van-col  wx:for="{{WorkPromotion}}"  wx:for-index="index" wx:key="id" wx:if="{{index<8}}">
+      <view class="opus_data" data-postid="{{item.id}}" data-title="{{item.title}}" bindtap="onOpusTap">
+      <view class="WorkPromotionContent" >
+        <van-image class="WorkPromotionContent_img" width="100%" height="120px" use-loading-slot  fit="cover" src="{{item.mainphoto}}">
+          <van-loading slot="loading" type="spinner" size="20" vertical />
+        </van-image>
+      </view>
+      <view class="WorkPromotionContent_title" >{{item.title}}</view>
+      <text class="WorkPromotionKw">{{item.type}}</text>
+      </view>
+    </van-col>
+  </van-row>
+
 <!-- 作品展示 end -->
 <!-- more -->
 <view class="more">

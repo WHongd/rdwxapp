@@ -29,14 +29,13 @@ Page({
     ],
 
   },
-
   onLoad() {
+
     wx.showToast({
       title: '加载中',
       icon:'loading',
       duration:600
   });
-
   fetch("orderplay","GET",).then(res=>{
       if(res.data.code==1){
         var arr=[];
@@ -87,6 +86,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+  },
+  onHide:function(){
   },
  Gobook:function(){
   this.Openbook();
