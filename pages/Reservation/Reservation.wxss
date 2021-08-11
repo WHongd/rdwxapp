@@ -56,3 +56,28 @@ page{
 .Reservation_card .van-cell__title{
   font-weight: bold;
 }
+.Reservation_card .van-dialog__message-text{
+  font-size: 18px;
+}
+.Reservation_card .van-button__text{
+  font-size: 14px;
+}
+.fail_card_Y{
+  margin-top: 280px;
+}
+.fail_card{
+  margin-top: 200px;
+}
+
+.failCarInfo{
+  width: 50%;
+  margin:0 auto;
+}
+.failCarInfo .van-empty__image{
+  width: 120px;
+  height:120px;
+}
+.failCarInfo .van-empty__image__img{
+  width: 120px;
+  height: 120px;
+}

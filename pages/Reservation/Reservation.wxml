@@ -27,7 +27,7 @@
   </van-row>
   <van-row  gutter="12">
   <van-col span="9">
-    <van-cell title-width="180rpx"  title="电话：" icon="phone-circle-o"  border="{{false}}" clickable="{{true}}"/>
+    <van-cell title-width="180rpx"  title="电  话：" icon="phone-circle-o"  border="{{false}}" clickable="{{true}}"/>
   </van-col>
   <van-col span="14"><view class="Card_info">13122222222</view></van-col>
   </van-row>
@@ -39,7 +39,17 @@
   </van-row>
   <view class="cancel_btn">
     <van-button type="info" bind:click="CancelReservation">取消预约  </van-button>
-    <van-dialog id="van-dialog" />
+    <van-dialog id="van-dialog"  />
  
   </view>
+</view>
+<view class="{{isIphoneX ?'fail_card_Y':'fail_card'}}">
+  <view class="failCarInfo">
+    <van-empty
+  class="custom-image"
+  image="https://img0.baidu.com/it/u=1227273382,2823165593&fm=26&fmt=auto&gp=0.jpg"
+  description="暂无预约"
+    />
+  </view>
+ 
 </view>

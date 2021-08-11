@@ -24,9 +24,9 @@ Page({
   CancelReservation:function(){
     Dialog.confirm({
       title:'预约',
+      message: '是否取消当前预约',
       confirmButtonText:'确认取消',
       cancelButtonText:'再想想',
-      message: '是否取消当前预约',
     })
       .then(() => {
          //on confirm
