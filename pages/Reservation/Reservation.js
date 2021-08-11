@@ -1,5 +1,6 @@
 // pages/Reservation/Reservation.js
 const app = getApp();
+import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
 Page({
 
   /**
@@ -20,7 +21,23 @@ Page({
       isIphoneX: isIphoneX
     })
   },
+  CancelReservation:function(){
+    Dialog.confirm({
+      title:'预约',
+      confirmButtonText:'确认取消',
+      cancelButtonText:'再想想',
+      message: '是否取消当前预约',
+    })
+      .then(() => {
+         //on confirm
+        console.log("确认取消") 
+      })
+      .catch(() => {
+        // on cancel
+        console.log("再想想") 
 
+      });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -38,12 +38,21 @@ page{
   text-align: center;
   margin:0 auto;
   margin-top: 30px;
-  padding:15px 0;
+  padding:15px 0 30px 0;
   border-radius: 15px;
 }
 .cancel_btn{
   margin-top:30px;
 }
 .cancel_btn button{
-  width: 30%;  
+  width: 40%;  
+}
+.Card_info{
+  padding:12px 10px 10px 0;
+  font-size: 13px;
+  text-align: left;
+
+}
+.Reservation_card .van-cell__title{
+  font-weight: bold;
 }
